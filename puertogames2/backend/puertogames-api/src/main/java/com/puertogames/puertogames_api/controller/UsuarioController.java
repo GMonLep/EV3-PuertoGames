@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -36,8 +37,9 @@ public class UsuarioController {
     }
 
     //actualizar usuario
-    @PutMapping
-    public ResponseEntity<Usuario> editar(@PathVariable Long id,@RequestBody Usuario usuario) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> actualizar(@PathVariable Long id,@RequestBody Usuario usuario) {
+        Optional<Usuario> usuarioExistente = repo.findById(id);
         if (usuario != null) {
             usuario.setId(id);
             usuario.setNombre(usuario.getNombre());
@@ -52,11 +54,10 @@ public class UsuarioController {
     }
 
     //eliminar x id
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public ResponseEntity<String> eliminarId(@PathVariable Long id){
-        Usuario usuario = repo.findById(id).get();
-        if (usuario != null) {
-            repo.delete(usuario);
+        if (id != null) {
+            repo.deleteById(id);
             return ResponseEntity.ok("✅ Usuario eliminado");
         }else{
             return ResponseEntity.notFound().build();
@@ -64,7 +65,7 @@ public class UsuarioController {
     }
 
     //eliminar x correo
-    @DeleteMapping("/{correo}")
+    @DeleteMapping("/correo/{correo}")
     public ResponseEntity<String> eliminarCorreo(@PathVariable String correo){
         Usuario usuario = repo.findByCorreo(correo).get();
         if (usuario != null) {

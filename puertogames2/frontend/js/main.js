@@ -94,7 +94,7 @@ const ctx = document.getElementById('grafico').getContext('2d');
         cargar();
     });
 
-    //Función de cargar
+    //Función de cargargg
     async function cargar(){
         const res = await fetch(API);
         const data = await res.json();

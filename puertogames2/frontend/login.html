@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Inicio de Sesión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+<form id="loginForm" class="bg-white p-6 rounded shadow-md w-96">
+    <h2 class="text-2xl font-bold mb-4 text-center">Iniciar Sesión</h2>
+    <input id="correo" type="email" placeholder="Correo" required
+           class="w-full mb-3 p-2 border rounded" />
+    <input id="contrasena" type="password" placeholder="Contraseña" required
+           class="w-full mb-4 p-2 border rounded" />
+    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+        Entrar
+    </button>
+    <p id="mensaje" class="mt-3 text-center text-red-600"></p>
+</form>
+
+<script>
+    const form = document.getElementById('loginForm');
+    const mensaje = document.getElementById('mensaje');
+
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        mensaje.textContent = '';
+
+        const correo = document.getElementById('correo').value;
+        const contrasena = document.getElementById('contrasena').value;
+
+        try {
+            const res = await fetch('http://localhost:8080/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ correo, contrasena })
+            });
+
+            if (res.ok) {
+                mensaje.style.color = 'green';
+                mensaje.textContent = 'Login exitoso';
+            } else if (res.status === 401) {
+                mensaje.textContent = 'Correo o contraseña incorrectos';
+            } else {
+                mensaje.textContent = 'Error en el servidor';
+            }
+        } catch (error) {
+            mensaje.textContent = 'No se pudo conectar al servidor';
+        }
+    });
+</script>
+</body>
+</html>

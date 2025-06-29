@@ -43,13 +43,63 @@
 
     <div class="max-w-4xl mx-auto p-7">
         <h1 class="text-4xl font-bold mb-4 text-center text-blue-700">Aqui van sus graficos muchachas xoxo</h1>
+        <canvas id="grafico" class="w-full max-w-xl bg-white p-4 rounded shadow mb-6"></canvas>
+        <div id="lista" class="mb-6"></div>
     </div>
+<script>
+    const form = document.getElementById("form");
+    const lista = document.getElementById("lista");
+    const ctx = document.getElementById("grafico").getContext("2d");
 
+    const labels = [];
+    const dataStock = [];
 
- 
+    const chart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Stock disponible",
+                data: dataStock,
+                backgroundColor: "rgba(59, 130, 246, 0.6)",
+                borderColor: "rgba(59, 130, 246, 1)",
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
 
-    <div id="lista" class="mb-6"></div>
-    <canvas id="grafico" class="w-full max-w-xl"></canvas>
+    function actualizarLista() {
+        lista.innerHTML = "";
+        labels.forEach((titulo, i) => {
+            const stock = dataStock[i];
+            const item = document.createElement("div");
+            item.className = "p-2 border-b border-gray-300 flex justify-between";
+            item.textContent = `${titulo}: ${stock} unidades`;
+            lista.appendChild(item);
+        });
+    }
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const titulo = document.getElementById("titulo").value.trim();
+        const stock = parseInt(document.getElementById("stock").value.trim());
+
+        if (!titulo || isNaN(stock)) return;
+
+        labels.push(titulo);
+        dataStock.push(stock);
+
+        chart.update();
+        actualizarLista();
+        form.reset();
+    });
+</script>
     <script src="js/main.js"></script>
 </body>
 </html>

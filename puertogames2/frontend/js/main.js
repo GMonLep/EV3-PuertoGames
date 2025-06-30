@@ -73,50 +73,44 @@ const form = document.getElementById('form');
 const lista = document.getElementById('lista');
 
 
+//Destruir un gráfico si es que existe para evitar superposición
+        if(window.myChart){
+            window.myChart.destroy();
+        }
+
 // MI PRIMER PRIMER GRAFICO DE BARRAS
 const ctx = document.getElementById('graficoCategorias').getContext('2d');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ['Aventura', 'Rol', 'Acción'],
-    datasets: [{
-      label: 'Stock disponible',
-      data: [25, 18, 30],
-      backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
-      borderRadius: 5
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: context => `${context.parsed.y} juegos`
-        }
-      }
+window.myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Aventura', 'Rol', 'Acción'],
+        datasets: [{
+            label: 'Stock disponible',
+            data: [25, 18, 30],
+            backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
+            borderRadius: 5
+        }]
     },
-    scales: {
-      y: {
-        beginAtZero: true,
-        title: { display: true, text: 'Cantidad en stock' }
-      },
-      x: {
-        title: { display: true, text: 'Categoría' }
-      }
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                callbacks: {
+                    label: context => `${context.parsed.y} juegos`
+                }
+            }
+        },
+        scales: {
+            y: { beginAtZero: true, title: { display: true, text: 'Cantidad en stock' } },
+            x: { title: { display: true, text: 'Categoría' } }
+        }
     }
-  }
 });
-
-
-
 
 //MI SEGUNDO GRAFICO DE PASTEL.
 const ctxMensual = document.getElementById('graficoStockMensual').getContext('2d');
-// === GRÁFICO DE PASTEL: Stock Mensual ===
-
-
-new Chart(ctxMensual, {
+window.myChart = new Chart(ctxMensual, {
   type: 'pie',
   data: {
     labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
@@ -151,28 +145,25 @@ new Chart(ctxMensual, {
 
 
 
+
+
 //AGREGUE TOASTIFY
     form.addEventListener('submit', async (e) =>{
         e.preventDefault();
-
         const vj = {
             titulo: form.titulo.value,
             genero: form.genero.value,
             plataforma: form.plataforma.value,
             precio: parseFloat(form.precio.value),
             stock: parseInt(form.stock.value)
-
         };
-
         try {
     const res = await fetch(API, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(vj)
     });
-
     if (!res.ok) throw new Error('Error al agregar el juego');
-
     Toastify({
       text: "¡Juego agregado con éxito!",
       duration: 3000,
@@ -180,10 +171,8 @@ new Chart(ctxMensual, {
       position: "right",
       backgroundColor: "linear-gradient(to right, #4caf50, #388e3c)",
     }).showToast();
-
     form.reset();
     cargar();
-
   } catch (error) {
     Toastify({
       text: "Error: " + error.message,
@@ -200,17 +189,11 @@ new Chart(ctxMensual, {
 
 
 
-
-
-
-
-
     //Función de cargargg
     async function cargar(){
         const res = await fetch(API);
         const data = await res.json();
     //alt GR + }}
-
         lista.innerHTML =`
             <table class="table-auto w-full text-left bg-white shadow-md rounded overflow-hidden">
                 <thead class="bg-blue-600 text-white">
@@ -222,7 +205,6 @@ new Chart(ctxMensual, {
                         <th className="px-4 py-2">Stock</th>
                     </tr>
                 </thead>
-
                 <tbody id="tablaBody" class="divide-y divide-gray-200"></tbody>
             </table>`;
 
@@ -245,10 +227,7 @@ new Chart(ctxMensual, {
             datos.push(v.stock);
         });
 
-        //Destruir un gráfico si es que existe para evitar superposición
-        if(window.myChart){
-            window.myChart.destroy();
-        }
+   
 
         //Gráfico
         window.myChart = new Chart(ctx, {
@@ -258,7 +237,7 @@ new Chart(ctxMensual, {
                 datasets: [{
                     label: 'Stock por Videojuego',
                     data: datos,
-                    backgroundColor: 'rgba(59, 130, 256, 0,6)',
+                    backgroundColor: 'rgba(59, 130, 256, 0.6)',
                     borderWidth: 1
                 }]
             },

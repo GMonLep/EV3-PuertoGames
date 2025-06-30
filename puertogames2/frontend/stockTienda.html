@@ -1,13 +1,19 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>PuertoGames</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
       <!--Link a los iconos de de FontAwesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- 
+    <!-- Toastify CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+<!-- Toastify JS -->
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="flex bg-cyan-600">
@@ -42,14 +48,106 @@
     </div>
 
     <div class="max-w-4xl mx-auto p-7">
-        <h1 class="text-4xl font-bold mb-4 text-center text-blue-700">Aqui van sus graficos muchachas xoxo</h1>
-    </div>
+        <h1 class="text-4xl font-bold mb-4 text-center text-blue-700">Estadisticas de Stock</h1>
 
+
+
+        <h2 class="text-xl font-bold text-center mb-4">Stock de juegos</h2>
+        <canvas id="graficoCategorias" class="w-full h-48"></canvas>
+    </div>
+    
+  
+<script>
+    const ctx = document.getElementById('graficoCategorias').getContext('2d');
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Aventura', 'Rol', 'Acción'],
+        datasets: [{
+          label: 'Stock disponible',
+          data: [25, 18, 30], // <-- puedes cambiar estos valores
+          backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
+          borderRadius: 5
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: {
+            label: context => `${context.parsed.y} juegos`
+          }}
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Cantidad en stock' }
+          },
+          x: {
+            title: { display: true, text: 'Categoría' }
+          }
+        }
+      }
+    });
+  </script>
+
+
+
+ <div class= "max-w-4xl mx-auto p-7">  <!--"bg-white rounded-2xl shadow-md p-6 w-80">-->
+    <h2 class="text-xl font-bold text-center mb-4">Stock Mensual</h2>
+    <canvas id="graficoStockMensual" class="w-full h-48"></canvas>
+  </div>
+
+  <script>
+    const ctxMensual = document.getElementById('graficoStockMensual').getContext('2d');
+
+
+    new Chart(ctxMensual, {
+      type: 'pie',
+      data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+        datasets: [{
+          label: 'Stock',
+          data: [40, 30, 25, 20, 35], // valores de ejemplo
+          backgroundColor: [
+            '#60A5FA', // azul
+            '#FBBF24', // amarillo
+            '#34D399', // verde
+            '#F472B6', // rosado
+            '#A78BFA'  // morado
+          ],
+          borderColor: '#FFFFFF',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#374151', // texto gris oscuro
+              font: {
+                size: 14,
+                weight: '500'
+              }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: context => `${context.label}: ${context.parsed} juegos`
+            }
+          }
+        }
+      }
+    });
+  </script>
 
  
 
     <div id="lista" class="mb-6"></div>
-    <canvas id="grafico" class="w-full max-w-xl"></canvas>
+   
     <script src="js/main.js"></script>
 </body>
 </html>

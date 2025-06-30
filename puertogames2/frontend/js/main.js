@@ -71,8 +71,87 @@ const API = 'http://localhost:8080/api/videojuegos';
 
 const form = document.getElementById('form');
 const lista = document.getElementById('lista');
-const ctx = document.getElementById('grafico').getContext('2d');
 
+
+// MI PRIMER PRIMER GRAFICO DE BARRAS
+const ctx = document.getElementById('graficoCategorias').getContext('2d');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Aventura', 'Rol', 'Acción'],
+    datasets: [{
+      label: 'Stock disponible',
+      data: [25, 18, 30],
+      backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
+      borderRadius: 5
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: context => `${context.parsed.y} juegos`
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'Cantidad en stock' }
+      },
+      x: {
+        title: { display: true, text: 'Categoría' }
+      }
+    }
+  }
+});
+
+
+
+
+//MI SEGUNDO GRAFICO DE PASTEL.
+const ctxMensual = document.getElementById('graficoStockMensual').getContext('2d');
+// === GRÁFICO DE PASTEL: Stock Mensual ===
+
+
+new Chart(ctxMensual, {
+  type: 'pie',
+  data: {
+    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+    datasets: [{
+      data: [40, 30, 25, 20, 35],
+      backgroundColor: ['#60A5FA', '#FBBF24', '#34D399', '#F472B6', '#A78BFA'],
+      borderColor: '#FFFFFF',
+      borderWidth: 2
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#374151',
+          font: {
+            size: 14,
+            weight: '500'
+          }
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: context => `${context.label}: ${context.parsed} juegos`
+        }
+      }
+    }
+  }
+});
+
+
+
+//AGREGUE TOASTIFY
     form.addEventListener('submit', async (e) =>{
         e.preventDefault();
 
@@ -85,14 +164,46 @@ const ctx = document.getElementById('grafico').getContext('2d');
 
         };
 
-        await fetch(API, {
-            method: 'POST',
-            headers: { 'Content-type': 'application/json'},
-            body: JSON.stringify(vj)
-        });
-        form.reset();
-        cargar();
+        try {
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(vj)
     });
+
+    if (!res.ok) throw new Error('Error al agregar el juego');
+
+    Toastify({
+      text: "¡Juego agregado con éxito!",
+      duration: 3000,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #4caf50, #388e3c)",
+    }).showToast();
+
+    form.reset();
+    cargar();
+
+  } catch (error) {
+    Toastify({
+      text: "Error: " + error.message,
+      duration: 4000,
+      gravity: "top",
+      position: "right",
+      backgroundColor: "linear-gradient(to right, #f44336, #d32f2f)",
+    }).showToast();
+  }
+});
+
+
+
+
+
+
+
+
+
+
 
     //Función de cargargg
     async function cargar(){

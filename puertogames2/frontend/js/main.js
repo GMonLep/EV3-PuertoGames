@@ -1,3 +1,10 @@
+//guardar jueguillos
+const API = 'http://localhost:8080/api/videojuegos/';
+
+const form = document.getElementById('formularioVideojuego');
+const lista = document.getElementById('lista');
+
+
 //Declarar cada id del HTML y almacenarlo en una variable
 
 const searchBtn = document.getElementById('searchBtn');
@@ -25,7 +32,7 @@ function buscarJuegos(nombreJuego){
   //verifica si la respuesta es correcta y conviete JSON
   fetch(url)
   .then(response=>{
-    if(!response.ok) throw new Error('No se pudo conectar a la API👀');
+    if(!response.ok) throw new Error('No se pudo conectar a la API');
     return response.json();
   })
 
@@ -37,7 +44,7 @@ function buscarJuegos(nombreJuego){
   //validando si algo salio mal
 
   .catch(error=>{
-    results.innerHTML = `<p class="text-red-600">✖️Error: ${error.message}</p>`;
+    results.innerHTML = `<p class="text-red-600">Error: ${error.message}</p>`;
   })
 
   .finally(()=>{
@@ -49,7 +56,7 @@ function buscarJuegos(nombreJuego){
 
 function mostrarResultados(juegos){
   if(juegos.length===0){
-    results.innerHTML = `<p class="text-red-600">✖️ No se encontraron juegos</p>`;
+    results.innerHTML = `<p class="text-red-600">No se encontraron juegos</p>`;
     return
   }
 
@@ -66,12 +73,7 @@ function mostrarResultados(juegos){
 
 };
 
-///SCRIPT GRAFICOS Y AÑADIR JUEGOS
-const API = 'http://localhost:8080/api/videojuegos';
-
-const form = document.getElementById('form');
-const lista = document.getElementById('lista');
-
+///SCRIPT GRAFICOS
 
 //Destruir un gráfico si es que existe para evitar superposición
         if(window.myChart){
@@ -109,8 +111,8 @@ window.myChart = new Chart(ctx, {
 });
 
 //MI SEGUNDO GRAFICO DE PASTEL.
-const ctxMensual = document.getElementById('graficoStockMensual').getContext('2d');
-window.myChart = new Chart(ctxMensual, {
+const ctxMensual1 = document.getElementById('graficoStockMensual').getContext('2d');
+window.myChart = new Chart(ctxMensual1, {
   type: 'pie',
   data: {
     labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
@@ -148,6 +150,7 @@ window.myChart = new Chart(ctxMensual, {
 
 
 //AGREGUE TOASTIFY
+
     form.addEventListener('submit', async (e) =>{
         e.preventDefault();
         const vj = {
@@ -183,9 +186,6 @@ window.myChart = new Chart(ctxMensual, {
     }).showToast();
   }
 });
-
-
-
 
 
 

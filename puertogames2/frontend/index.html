@@ -1,4 +1,4 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,23 +10,30 @@
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="flex bg-cyan-600">
-        <!-- LOGO -->
-        <div class="mr-4 flex items-center">
-            <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+        <!-- NAV -->
+        <div class="flex items-center bg-cyan-600 px-4 py-2">
+            <!-- LOGO -->
+            <div class="mr-4 flex items-center">
+                <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+                <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
+                    <li class="mr-6" id="puertoGames">
+                        <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
+                    </li>
+
+                    <li class="mr-6">
+                        <a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
+                    <li class="mr-6">
+                        <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
+                    <li class="mr-6">
+                        <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
+                    <li class="mr-6">
+                        <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
+                </ul>
+                <ul>
+
+                </ul>
+            </div>
         </div>
-        <ul class="flex m-4">
-            <li class="mr-6" id="puertoGames">
-              <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
-            </li>
-            <li class="mr-6">
-              <a class="hover:text-yellow-300 transition" href="#">Nosotros</a></li>
-            <li class="mr-6">
-              <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-            <li class="mr-6">
-              <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-            <li class="mr-6">
-              <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
-        </ul>
     </div>
 
 
@@ -37,9 +44,24 @@
 
     <script src="js/main.js"></script>
     <div class="flex flex-col items-center justify-center">
-        <h2 class="text-xl font-bold mb-4 text-cyan-700">DESTACADOS Y RECOMENDADOS</h2>
-        <img src="/frontend/img/apex.avif" alt="apex" class="rounded-lg shadow-lg w-full max-w-md object-cover hover:scale-105 transition-transform">
-    </div>
+        <h2 class="text-xl font-bold mb-4 text-cyan-700 mt-7">
+            DESTACADOS Y RECOMENDADOS
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <img src="../frontend/img/apex.avif" alt="apex"
+                 class="h-64 w-full object-cover rounded-lg shadow-lg hover:scale-105 transition-transform" />
+
+            <img src="../frontend/img/img1.jpg" alt="crossing"
+                 class="h-64 w-full object-cover rounded-lg shadow-lg hover:scale-105 transition-transform" />
+
+            <img src="../frontend/img/img2.avif" alt="mario"
+                 class="h-64 w-full object-cover rounded-lg shadow-lg hover:scale-105 transition-transform" />
+
+            <img src="../frontend/img/img3.webp" alt="doom"
+                 class="h-64 w-full object-cover rounded-lg shadow-lg hover:scale-105 transition-transform" />
+        </div>
+
     </div>
 
     <footer class="bg-cyan-600 text-white mt-8">

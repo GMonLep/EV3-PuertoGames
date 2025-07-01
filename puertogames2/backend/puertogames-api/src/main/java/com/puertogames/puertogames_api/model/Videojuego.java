@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Videojuego {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

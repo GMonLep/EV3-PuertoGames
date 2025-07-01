@@ -1,58 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Busqueda</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <!--Link a los iconos de de FontAwesome-->
+    <meta charset="UTF-8">
+    <title>PuertoGames</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--Link a los iconos de de FontAwesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- 
-
 </head>
 <body class="bg-gray-100 font-sans">
 <div class="flex bg-cyan-600">
-    <!-- LOGO -->
-    <div class="mr-4 flex items-center">
-        <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+    <!-- NAV -->
+    <div class="flex items-center bg-cyan-600 px-4 py-2">
+        <!-- LOGO -->
+        <div class="mr-4 flex items-center">
+            <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+            <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
+                <li class="mr-6" id="puertoGames">
+                    <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
+                </li>
+
+                <li class="mr-6">
+                    <a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
+                <li class="mr-6">
+                    <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
+                <li class="mr-6">
+                    <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
+                <li class="mr-6">
+                    <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
+            </ul>
+            <ul>
+
+            </ul>
+        </div>
     </div>
-        <ul class="flex m-4">
-            <li class="mr-6" id="puertoGames">
-              <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
-            </li>
-            <li class="mr-6">
-              <a class="hover:text-yellow-300 transition" href="#">Nosotros</a></li>
-            <li class="mr-6">
-              <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-            <li class="mr-6">
-              <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-            <li class="mr-6">
-              <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
-        </ul>
 </div>
 
-<!-- CONTENIDO -->
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="max-w-4xl mx-auto p-8 mt-8 bg-white/70 backdrop-blur-md rounded-xl shadow-xl">
+    <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Búsqueda de videojuegos</h1>
+</div>
+
 <div class="max-w-4xl mx-auto p-6 mt-6 bg-white/70 backdrop-blur-md rounded-xl shadow-xl">
-  <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Puerto Games</h1>
+    <!--BARRA BUSQUEDA-->
+    <div class="flex gap-2 mb-6">
+        <input type="text" id="searchInput" placeholder="Introduzca el nombre del Videojuego"
+               class="flex-grow px-4 py-2 border border-cyan-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <button id="searchBtn"
+                class="bg-cyan-700 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition">Buscar</button>
+    </div>
 
-  <!--BARRA BUSQUEDA-->
-  <div class="flex gap-2 mb-6">
-    <input type="text" id="searchInput" placeholder="Introduzca el nombre del Videojuego" 
-    class="flex-grow px-4 py-2 border border-cyan-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-    <button id="searchBtn" 
-    class="bg-cyan-700 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition">Buscar</button>
+    <!--MENSAJE "CARGANDO"-->
+    <div id="loader" class="hidden text-center text-cyan-800 mb-4 animate-pulse"><p>Cargando...</p></div>
 
-  </div>
-
-  <!--MENSAJE "CARGANDO"-->
-  <div id="loader" class="hidden text-center text-cyan-800 mb-4 animate-pulse"><p>Cargando...</p></div>
-
-  <!--DIV EN DONDE SE MUESTRAN LOS RESULTADOS-->
-  <div id="results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    <!--DIV EN DONDE SE MUESTRAN LOS RESULTADOS-->
+    <div id="results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </div>
- 
+
 <!--API RAWG-->>
-  <script src="/frontend/js/main.js"></script>
+<script src="../frontend/js/main.js"></script>
+
+
 
 
 <footer class="bg-cyan-600 text-white mt-8">
@@ -70,4 +79,3 @@
 </footer>
 </body>
 </html>
-

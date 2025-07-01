@@ -49,9 +49,9 @@ public class UsuarioControllerTest {
     @Test
     @DisplayName("TEST 1: POST")
     void testPost() throws Exception {
-        Usuario usuario = new Usuario(null,"Juanito","Perez","contrasenia1","juanit@gmail.com","Administrador");
+        Usuario usuario = new Usuario(null,"Juanito","Perez","contrasenia1","juanit@gmail.com");
 
-        when(repo.save(any())).thenReturn(new Usuario(1L,"Juanito","Perez","contrasenia1","juanit@gmail.com","Administrador"));
+        when(repo.save(any())).thenReturn(new Usuario(1L,"Juanito","Perez","contrasenia1","juanit@gmail.com"));
         mockMvc.perform(post("/api/usuarios")
                         .contentType("application/json")//indicar que el contenido es JSON
                         .content(mapper.writeValueAsString(usuario)))// Convertimos el objeto JSON
@@ -63,7 +63,7 @@ public class UsuarioControllerTest {
     @Test
     @DisplayName("TESTING 2 GET LISTA")
     void testGetAll() throws Exception{
-        when(repo.findAll()).thenReturn(List.of(new Usuario(1L, "Juanito","Perez","contrasenia1","juanit@gmail.com","Administrador")));
+        when(repo.findAll()).thenReturn(List.of(new Usuario(1L, "Juanito","Perez","contrasenia1","juanit@gmail.com")));
         mockMvc.perform(get("/api/usuarios"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].nombre").value("Juanito"));
@@ -73,7 +73,7 @@ public class UsuarioControllerTest {
     @DisplayName("TESTING 3 GET POR ID")
     void testGetById() throws Exception{
 
-        Usuario usuario = new Usuario(1L,"Juanito","Perez","contrasenia1","juanit@gmail.com","Administrador");
+        Usuario usuario = new Usuario(1L,"Juanito","Perez","contrasenia1","juanit@gmail.com");
 
         when(repo.findById(1L)).thenReturn(Optional.of(usuario));
 
@@ -85,7 +85,7 @@ public class UsuarioControllerTest {
     @Test
     @DisplayName("TESTING 4 PUT")
     void testPut() throws Exception{
-        Usuario original = new Usuario (1L,"Juanito","Perez","contrasenia1","juanit@gmail.com","Administrador");
+        Usuario original = new Usuario (1L,"Juanito","Perez","contrasenia1","juanit@gmail.com");
         Usuario actualizado = new Usuario();
         actualizado.setApellido("De las Mancillas");
         actualizado.setContrasena("contrasenia2");
@@ -113,7 +113,7 @@ public class UsuarioControllerTest {
     @Test
     @DisplayName("TEST 5 DELETE POR CORREO")
     void testDeleteByCorreo() throws Exception{
-        Usuario usuario = new Usuario (1L,"Juanito","Perez","contrasenia1","juanit@gmail.com","Administrador");
+        Usuario usuario = new Usuario (1L,"Juanito","Perez","contrasenia1","juanit@gmail.com");
         when(repo.findByCorreo("juanit@gmail.com")).thenReturn(Optional.of(usuario));
         doNothing().when(repo).delete(usuario);
         mockMvc.perform(delete("/api/usuarios/correo/juanit@gmail.com"))

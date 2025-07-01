@@ -12,34 +12,43 @@
 
 <body class="bg-gray-100 font-sans">
 <div class="flex bg-cyan-600">
-    <!-- LOGO -->
-    <div class="mr-4 flex items-center">
-        <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+    <!-- NAV -->
+    <div class="flex items-center bg-cyan-600 px-4 py-2">
+        <!-- LOGO -->
+        <div class="mr-4 flex items-center">
+            <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+            <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
+                <li class="mr-6" id="puertoGames">
+                    <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
+                </li>
+                <li class="mr-6">
+                    <a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
+                <li class="mr-6">
+                    <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
+                <li class="mr-6">
+                    <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
+                <li class="mr-6">
+                    <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
+            </ul>
+        </div>
     </div>
-    <ul class="flex m-4">
-        <li class="mr-6" id="puertoGames">
-            <a class="hover:text-white" href="index.html">Puerto Games</a>
-        </li>
-        <li class="mr-6"><a class="hover:text-white" href="#">Nosotros</a></li>
-        <li class="mr-6"><a class="hover:text-white" href="stockTienda.html">Stock</a></li>
-        <li class="mr-6"><a class="hover:text-white" href="busqueda.html">Juegos</a></li>
-        <li class="mr-6"><a class="fa-solid fa-user hover:text-white" href="login.html" id="iconoUsuario"></a></li>
-    </ul>
 </div>
+
 
 <!-- TITULO -->
 <div class="max-w-4xl mx-auto p-8 mt-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl">
     <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Stock Sucursal Puerto Montt</h1>
 
     <!-- FORMULARIO -->
-    <form method="post" id="form" class="flex flex-wrap gap-2 justify-center mb-8">
-        <input type="text" id="titulo" placeholder="Mario Bross" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="text" id="genero" placeholder="Aventura" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="text" id="plataforma" placeholder="NES" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="number" id="precio" placeholder="90000" class="border border-cyan-300 px-3 py-2 w-24 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="number" id="stock" placeholder="20" class="border border-cyan-300 px-3 py-2 w-20 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+    <form method="post" id="formularioVideojuego" class="flex flex-wrap gap-2 justify-center mb-8">
+        <input type="text" id="titulo" name="titulo"placeholder="Mario Bross" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="text" id="genero" name="genero" placeholder="Aventura" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="text" id="plataforma" name="plataforma" placeholder="NES" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="number" id="precio" name="precio" placeholder="90000" class="border border-cyan-300 px-3 py-2 w-24 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="number" id="stock" name="stock" placeholder="20" class="border border-cyan-300 px-3 py-2 w-20 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
         <button class="bg-cyan-700 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition" id="btn">Agregar</button>
     </form>
+
 
     <!-- LISTA -->
     <div id="lista" class="bg-white rounded-lg shadow p-4 mb-8"></div>
@@ -175,7 +184,7 @@
         }
     });
 
-    document.getElementById("form").addEventListener("submit", function(e) {
+    document.getElementById("formularioVideojuego").addEventListener("submit", function(e) {
         e.preventDefault();
 
         const titulo = document.getElementById("titulo").value.trim();
@@ -195,9 +204,10 @@
         juegosData.push(stock);
         chartJuegos.update();
 
-        document.getElementById("form").reset();
+        document.getElementById("formularioVideojuego").reset();
     });
 </script>
+
 
 
 
@@ -214,5 +224,9 @@
         © 2025 Puerto Games - Todos los derechos reservados.
     </div>
 </footer>
+
+
+<script src="../frontend/js/main.js"></script>
+
 </body>
 </html>

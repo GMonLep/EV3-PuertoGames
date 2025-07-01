@@ -25,6 +25,7 @@ public class VideojuegoController {
 
     @PostMapping
     public Videojuego crear(@RequestBody Videojuego v){
+        System.out.println("Post exitoso " + v);
         return repo.save(v);
     }
 

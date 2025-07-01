@@ -134,11 +134,11 @@
     <canvas id="graficoJuegos" class="w-full h-48"></canvas>
 </div>
 <script>
-    const plataformaLabels = [];
-    const plataformaData = [];
+    const plataformaLabels = ['PlayStation', 'Xbox', 'Nintendo'];
+    const plataformaData = [15, 20, 12];
 
-    const juegosLabels = [];
-    const juegosData = [];
+    const juegosLabels = ['FIFA 24', 'Halo', 'Zelda'];
+    const juegosData = [10, 8, 6];
 
     const ctxPlataformas = document.getElementById('graficoPlataformas').getContext('2d');
     const chartPlataformas = new Chart(ctxPlataformas, {

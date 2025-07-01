@@ -1,7 +1,7 @@
 //guardar jueguillos
-const API = 'http://localhost:8080/api/videojuegos/';
+const API = 'http://localhost:8080/api/videojuegos';
 
-const form = document.getElementById('formularioVideojuego');
+const form = document.getElementById('form');
 const lista = document.getElementById('lista');
 
 

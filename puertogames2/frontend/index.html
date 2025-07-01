@@ -7,7 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <!--Link a los iconos de de FontAwesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
- 
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="flex bg-cyan-600">
@@ -17,30 +16,31 @@
         </div>
         <ul class="flex m-4">
             <li class="mr-6" id="puertoGames">
-              <a class="hover:text-white" href="index.html">Puerto Games</a>
+              <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
             </li>
             <li class="mr-6">
-              <a class="hover:text-white" href="#">Nosotros</a></li>
+              <a class="hover:text-yellow-300 transition" href="#">Nosotros</a></li>
             <li class="mr-6">
-              <a class="hover:text-white" href="stockTienda.html">Stock</a></li>
+              <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
             <li class="mr-6">
-              <a class="hover:text-white" href="busqueda.html">Juegos</a></li>
+              <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
             <li class="mr-6">
-              <a class="fa-solid fa-user hover:text-white" href="login.html" id="iconoUsuario"></a></li>
+              <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
         </ul>
     </div>
 
-    <div class="max-w-4xl mx-auto p-7">
-        <h1 class="text-4xl font-bold mb-4 text-center text-blue-700">Bienvenido a Puerto Games</h1>
-    </div>
-    <div class="flex flex-col items-center justify-center">
-        <h1 class="text-1xl font-bold mb-4 text-left text-blue-700">DESTACADOS Y RECOMENDADOS</h1>
-        <img src="/frontend/img/apex.avif" alt="apex" class="object-center">
 
+     <!-- CONTENIDO PRINCIPAL -->
+    <div class="max-w-4xl mx-auto p-8 mt-8 bg-white/70 backdrop-blur-md rounded-xl shadow-xl">
+        <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Bienvenido a Puerto Games</h1>
     </div>
 
     <script src="js/main.js"></script>
-
+    <div class="flex flex-col items-center justify-center">
+        <h2 class="text-xl font-bold mb-4 text-cyan-700">DESTACADOS Y RECOMENDADOS</h2>
+        <img src="/frontend/img/apex.avif" alt="apex" class="rounded-lg shadow-lg w-full max-w-md object-cover hover:scale-105 transition-transform">
+    </div>
+    </div>
 
     <footer class="bg-cyan-600 text-white mt-8">
         <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">

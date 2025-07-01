@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <title>Inicio de Sesión</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!--Link a los iconos de FontAwesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -13,6 +14,19 @@
     <!-- LOGO -->
     <div class="mr-4 flex items-center">
         <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+        <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
+            <li class="mr-6" id="puertoGames">
+              <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
+            </li>
+            <li class="mr-6">
+              <a class="hover:text-yellow-300 transition" href="#">Nosotros</a></li>
+            <li class="mr-6">
+              <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
+            <li class="mr-6">
+              <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
+            <li class="mr-6">
+              <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
+        </ul>
     </div>
     <ul class="flex space-x-6">
         <li id="puertoGames">
@@ -40,7 +54,6 @@
             <i class="fas fa-sign-in-alt text-blue-600"></i>
             <span>Iniciar Sesión</span>
         </h2>
-
         <input id="correo" type="email" placeholder="Correo electrónico" required
                class="w-full mb-3 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
         <input id="contrasena" type="password" placeholder="Contraseña" required

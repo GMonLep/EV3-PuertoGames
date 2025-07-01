@@ -10,40 +10,46 @@
  
 
 </head>
-<body class="bg-gray-100 font-sans">
-<div class="flex bg-cyan-600">
-        <ul class="flex m-4">
+<body class="bg-gradient-to-b from-cyan-600 via-cyan-500 to-cyan-400 min-h-screen font-sans text-gray-800">
+
+    <!-- NAV -->
+<div class="bg-cyan-700 shadow-md">
+        <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
             <li class="mr-6" id="puertoGames">
-              <a class="hover:text-white" href="index.html">Puerto Games</a>
+              <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
             </li>
             <li class="mr-6">
-              <a class="hover:text-white" href="#">Nosotros</a></li>
+              <a class="hover:text-yellow-300 transition" href="#">Nosotros</a></li>
             <li class="mr-6">
-              <a class="hover:text-white" href="stockTienda.html">Stock</a></li>
+              <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
             <li class="mr-6">
-              <a class="hover:text-white" href="busqueda.html">Juegos</a></li>
+              <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
             <li class="mr-6">
-              <a class="fa-solid fa-user hover:text-white" href="login.html" id="iconoUsuario"></a></li>
+              <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
         </ul>
 </div>
-<div class="max-w-4xl mx-auto p-6">
-  <h1 class="text-3xl font-bold mb-4 text-center text-blue-700">Puerto Games</h1>
+
+<!-- CONTENIDO -->
+<div class="max-w-4xl mx-auto p-6 mt-6 bg-white/70 backdrop-blur-md rounded-xl shadow-xl">
+  <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Puerto Games</h1>
+
   <!--BARRA BUSQUEDA-->
-  <div class="flex gap-2 mb-4">
-
-    <input type="text" id="searchInput" placeholder="Introduzca el nombre del Videojuego" class="flex-grow px-4 py-2 border shadow">
-
-    <button id="searchBtn" class="bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded shadow cursor-pointer">Buscar</button>
+  <div class="flex gap-2 mb-6">
+    <input type="text" id="searchInput" placeholder="Introduzca el nombre del Videojuego" 
+    class="flex-grow px-4 py-2 border border-cyan-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+    <button id="searchBtn" 
+    class="bg-cyan-700 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition">Buscar</button>
 
   </div>
 
   <!--MENSAJE "CARGANDO"-->
-  <div id="loader" class="hidden text-center text-gray-600 mb-4"><p>Cargando...</p></div>
+  <div id="loader" class="hidden text-center text-cyan-800 mb-4 animate-pulse"><p>Cargando...</p></div>
 
   <!--DIV EN DONDE SE MUESTRAN LOS RESULTADOS-->
-  <div id="results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  <div id="results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 </div>
- <!--API RAWG-->>
+ 
+<!--API RAWG-->>
   <script src="/frontend/js/main.js"></script>
 </body>
 </html>

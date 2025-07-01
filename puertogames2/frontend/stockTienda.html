@@ -8,21 +8,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-</head>
-<body class="bg-gradient-to-b from-cyan-600 via-cyan-500 to-cyan-400 min-h-screen font-sans text-gray-800">
+  </head>
   
-  <!-- NAV -->
-  <div class="bg-cyan-700 shadow-md">
-    <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
-      <li id="puertoGames">
-        <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
-      </li>
-      <li><a class="hover:text-yellow-300 transition" href="#">Nosotros</a></li>
-      <li><a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-      <li><a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-      <li><a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
-    </ul>
-  </div>
+  <body class="bg-gray-100 font-sans">
+    <div class="flex bg-cyan-600">
+        <!-- LOGO -->
+        <div class="mr-4 flex items-center">
+            <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+        </div>
+        <ul class="flex m-4">
+            <li class="mr-6" id="puertoGames">
+                <a class="hover:text-white" href="index.html">Puerto Games</a>
+            </li>
+            <li class="mr-6"><a class="hover:text-white" href="#">Nosotros</a></li>
+            <li class="mr-6"><a class="hover:text-white" href="stockTienda.html">Stock</a></li>
+            <li class="mr-6"><a class="hover:text-white" href="busqueda.html">Juegos</a></li>
+            <li class="mr-6"><a class="fa-solid fa-user hover:text-white" href="login.html" id="iconoUsuario"></a></li>
+        </ul>
+    </div>
+    <div class="max-w-4xl mx-auto p-6">
+        <h1 class="text-4xl font-bold mb-4 text-center text-blue-700">Stock Sucursal Puerto Montt</h1>
+    </div>
+    <div class="flex gap-2 mb-4">
+        <form method="post" id="form" class="space-x-2 mb-6">
+            <input type="text" id="titulo" placeholder="Mario Bross" class="border p-2">
+            <input type="text" id="genero" placeholder="Aventura" class="border p-2">
+            <input type="text" id="plataforma" placeholder="NES" class="border p-2">
+            <input type="number" id="precio" placeholder="90000" class="border p-2 w-24">
+            <input type="number" id="stock" placeholder="20" class="border p-2 w-20">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded" id="btn">Agregar</button>
+        </form>
+    </div>
 
   <!-- TITULO -->
   <div class="max-w-4xl mx-auto p-8 mt-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl">
@@ -105,7 +121,84 @@
     });
   </script>
 
-  <script src="js/main.js"></script>
+
+    <script>
+        // Gráfico de categorías (barras)
+        const ctxCategorias = document.getElementById('graficoCategorias').getContext('2d');
+        new Chart(ctxCategorias, {
+            type: 'bar',
+            data: {
+                labels: ['Aventura', 'Rol', 'Acción'],
+                datasets: [{
+                    label: 'Stock disponible',
+                    data: [25, 18, 30],
+                    backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: context => `${context.parsed.y} juegos`
+                        }
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Cantidad en stock' } },
+                    x: { title: { display: true, text: 'Categoría' } }
+                }
+            }
+        });
+
+        // Gráfico mensual (pie)
+        const ctxMensual = document.getElementById('graficoStockMensual').getContext('2d');
+        new Chart(ctxMensual, {
+            type: 'pie',
+            data: {
+                labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+                datasets: [{
+                    label: 'Stock',
+                    data: [40, 30, 25, 20, 35],
+                    backgroundColor: ['#60A5FA', '#FBBF24', '#34D399', '#F472B6', '#A78BFA'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: context => `${context.label}: ${context.parsed} juegos`
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+
+<!--MAIN JS-->
+    <script src="js/main.js"></script>
+
+
+    <footer class="bg-cyan-600 text-white mt-8">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
+
+            <div class="text-center">
+                <h3 class="text-lg font-semibold">Puerto Games</h3>
+                <p class="text-sm">Tu portal de videojuegos favoritos</p>
+            </div>
+        </div>
+
+        <div class="text-center text-sm bg-cyan-700 py-2">
+            © 2025 Puerto Games - Todos los derechos reservados.
+        </div>
+    </footer>
 </body>
 </html>
 

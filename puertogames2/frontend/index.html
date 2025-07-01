@@ -8,12 +8,13 @@
       <!--Link a los iconos de de FontAwesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bg-gradient-to-b from-cyan-600 via-cyan-500 to-cyan-400 min-h-screen font-sans text-gray-800">
-    
-
-  <!-- NAV -->
-  <div class="bg-cyan-700 shadow-md">
-        <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
+<body class="bg-gray-100 font-sans">
+    <div class="flex bg-cyan-600">
+        <!-- LOGO -->
+        <div class="mr-4 flex items-center">
+            <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+        </div>
+        <ul class="flex m-4">
             <li class="mr-6" id="puertoGames">
               <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
             </li>
@@ -34,13 +35,25 @@
         <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Bienvenido a Puerto Games</h1>
     </div>
 
+    <script src="js/main.js"></script>
     <div class="flex flex-col items-center justify-center">
         <h2 class="text-xl font-bold mb-4 text-cyan-700">DESTACADOS Y RECOMENDADOS</h2>
         <img src="/frontend/img/apex.avif" alt="apex" class="rounded-lg shadow-lg w-full max-w-md object-cover hover:scale-105 transition-transform">
     </div>
     </div>
 
+    <footer class="bg-cyan-600 text-white mt-8">
+        <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
 
-    <script src="js/main.js"></script>
+            <div class="text-center">
+                <h3 class="text-lg font-semibold">Puerto Games</h3>
+                <p class="text-sm">Tu portal de videojuegos favoritos</p>
+            </div>
+        </div>
+
+        <div class="text-center text-sm bg-cyan-700 py-2">
+            © 2025 Puerto Games - Todos los derechos reservados.
+        </div>
+    </footer>
 </body>
 </html>

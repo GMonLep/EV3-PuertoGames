@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <title>Inicio de Sesión</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-     <!--Link a los iconos de FontAwesome-->
+    <!--Link a los iconos de FontAwesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bg-gradient-to-b from-cyan-600 via-cyan-500 to-cyan-400 min-h-screen font-sans text-gray-800">
+<body class="bg-gray-100 font-sans">
 
-
-    <!-- NAV -->
-    <div class="bg-cyan-700 shadow-md">
+<!-- NAV -->
+<div class="flex items-center bg-cyan-600 px-4 py-2">
+    <!-- LOGO -->
+    <div class="mr-4 flex items-center">
+        <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
         <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
             <li class="mr-6" id="puertoGames">
               <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
@@ -27,24 +28,52 @@
               <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
         </ul>
     </div>
-
-
-
-<!-- FORM LOGIN -->
-<div class="flex items-center justify-center py-12">
-<form id="loginForm" class="bg-white/80 backdrop-blur-md p-8 rounded-xl shadow-xl w-80">
-    <h2 class="text-3xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Iniciar Sesión</h2>
-    <input id="correo" type="email" placeholder="Correo" required
-           class="w-full mb-4 px-3 py-2 border border-cyan-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 shadow" />
-    <input id="contrasena" type="password" placeholder="Contraseña" required
-           class="w-full mb-6 px-3 py-2 border border-cyan-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 shadow"/>
-    <button type="submit" class="w-full bg-cyan-700 hover:bg-cyan-900 text-white py-2 rounded-lg shadow transition">
-        Entrar
-    </button>
-    <p id="mensaje" class="mt-4 text-center text-red-600"></p>
-</form>
+    <ul class="flex space-x-6">
+        <li id="puertoGames">
+            <a class="hover:text-white text-white font-semibold" href="index.html">Puerto Games</a>
+        </li>
+        <li>
+            <a class="hover:text-white text-white" href="#">Nosotros</a>
+        </li>
+        <li>
+            <a class="hover:text-white text-white" href="stockTienda.html">Stock</a>
+        </li>
+        <li>
+            <a class="hover:text-white text-white" href="busqueda.html">Juegos</a>
+        </li>
+        <li>
+            <a class="fa-solid fa-user hover:text-white text-white" href="login.html" id="iconoUsuario"></a>
+        </li>
+    </ul>
 </div>
 
+<!-- LOGIN FORM -->
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+    <form id="loginForm" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 flex items-center justify-center space-x-2">
+            <i class="fas fa-sign-in-alt text-blue-600"></i>
+            <span>Iniciar Sesión</span>
+        </h2>
+        <input id="correo" type="email" placeholder="Correo electrónico" required
+               class="w-full mb-3 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input id="contrasena" type="password" placeholder="Contraseña" required
+               class="w-full mb-4 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+        <button type="submit"
+                class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-colors duration-300">
+            <i class="fas fa-unlock-alt mr-2"></i>Entrar
+        </button>
+
+        <div class="mt-4 flex justify-between text-sm">
+            <a href="#" class="text-blue-600 hover:underline">¿Olvidaste tu contraseña?</a>
+            <a href="#" class="text-blue-600 hover:underline">Registrarse</a>
+        </div>
+
+        <p id="mensaje" class="mt-4 text-center text-red-600"></p>
+    </form>
+</div>
+
+<!-- SCRIPT LOGIN -->
 <script>
     const form = document.getElementById('loginForm');
     const mensaje = document.getElementById('mensaje');
@@ -76,5 +105,22 @@
         }
     });
 </script>
+
+<footer class="bg-cyan-600 text-white mt-8">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
+
+        <div class="text-center">
+            <h3 class="text-lg font-semibold">Puerto Games</h3>
+            <p class="text-sm">Tu portal de videojuegos favoritos</p>
+        </div>
+    </div>
+
+    <div class="text-center text-sm bg-cyan-700 py-2">
+        © 2025 Puerto Games - Todos los derechos reservados.
+    </div>
+</footer>
+
+
 </body>
 </html>
+

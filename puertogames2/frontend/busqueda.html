@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busqueda</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!--Link a los iconos de de FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+ 
+
+</head>
+<body class="bg-gray-100 font-sans">
+<div class="flex bg-cyan-600">
+        <ul class="flex m-4">
+            <li class="mr-6" id="puertoGames">
+              <a class="hover:text-white" href="index.html">Puerto Games</a>
+            </li>
+            <li class="mr-6">
+              <a class="hover:text-white" href="#">Nosotros</a></li>
+            <li class="mr-6">
+              <a class="hover:text-white" href="stockTienda.html">Stock</a></li>
+            <li class="mr-6">
+              <a class="hover:text-white" href="busqueda.html">Juegos</a></li>
+            <li class="mr-6">
+              <a class="fa-solid fa-user hover:text-white" href="login.html" id="iconoUsuario"></a></li>
+        </ul>
+</div>
+<div class="max-w-4xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-4 text-center text-blue-700">Puerto Games</h1>
+  <!--BARRA BUSQUEDA-->
+  <div class="flex gap-2 mb-4">
+
+    <input type="text" id="searchInput" placeholder="Introduzca el nombre del Videojuego" class="flex-grow px-4 py-2 border shadow">
+
+    <button id="searchBtn" class="bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded shadow cursor-pointer">Buscar</button>
+
+  </div>
+
+  <!--MENSAJE "CARGANDO"-->
+  <div id="loader" class="hidden text-center text-gray-600 mb-4"><p>Cargando...</p></div>
+
+  <!--DIV EN DONDE SE MUESTRAN LOS RESULTADOS-->
+  <div id="results" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+</div>
+ <!--API RAWG-->>
+  <script src="/frontend/js/main.js"></script>
+</body>
+</html>
+

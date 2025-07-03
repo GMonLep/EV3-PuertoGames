@@ -5,34 +5,40 @@
     <title>Inicio de Sesión</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!--Link a los iconos de FontAwesome-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-image: url('img/gJzuHB.jpg'); /* Asegúrate de que la ruta sea correcta */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Esto asegura que el fondo no se desplace al hacer scroll */
+        }
+    </style>
 </head>
 <body class="bg-gray-100 font-sans">
-<div class="flex bg-cyan-600">
-    <!-- NAV -->
-    <div class="flex items-center bg-cyan-600 px-4 py-2">
-        <!-- LOGO -->
-        <div class="mr-4 flex items-center">
+
+<!-- NAV -->
+<div class="flex bg-cyan-600 bg-opacity-70">
+    <div class="flex items-center justify-between w-full px-4 py-2">
+        <!-- LOGO y TÍTULO -->
+        <div class="flex items-center">
             <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
-            <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
-                <li class="mr-6" id="puertoGames">
-                    <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
-                </li>
-                <li class="mr-6">
-                    <a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
-                <li class="mr-6">
-                    <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-                <li class="mr-6">
-                    <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-                <li class="mr-6">
-                    <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
-            </ul>
+            <a href="index.html" class="text-white text-2xl font-semibold ml-4">Puerto Games</a>
         </div>
+
+        <!-- MENÚ DERECHO -->
+        <ul class="flex items-center space-x-6 text-white text-lg font-semibold">
+            <li><a class="hover:text-yellow-300 transition" href="index.html">Inicio</a></li>
+            <li><a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
+            <li><a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
+            <li><a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
+            <li><a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
+        </ul>
     </div>
 </div>
 
 <!-- LOGIN FORM -->
-<div class="flex items-center justify-center min-h-screen bg-gray-100">
+<div class="flex items-center justify-center min-h-screen">
     <form id="loginForm" class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 class="text-2xl font-bold mb-6 text-center text-gray-800 flex items-center justify-center space-x-2">
             <i class="fas fa-sign-in-alt text-blue-600"></i>
@@ -79,6 +85,10 @@
             if (res.ok) {
                 mensaje.style.color = 'green';
                 mensaje.textContent = 'Login exitoso';
+                // Redirigir al index.html si el login es exitoso
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000); // Espera 1 segundo antes de redirigir
             } else if (res.status === 401) {
                 mensaje.textContent = 'Correo o contraseña incorrectos';
             } else {
@@ -92,7 +102,6 @@
 
 <footer class="bg-cyan-600 text-white mt-8">
     <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
-
         <div class="text-center">
             <h3 class="text-lg font-semibold">Puerto Games</h3>
             <p class="text-sm">Tu portal de videojuegos favoritos</p>
@@ -103,7 +112,6 @@
         © 2025 Puerto Games - Todos los derechos reservados.
     </div>
 </footer>
-
 
 </body>
 </html>

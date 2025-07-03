@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PuertoGames</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <style>
+        body {
+            background-image: url('img/gJzuHB.jpg'); /* Asegúrate de que la ruta de la imagen sea correcta */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Fondo fijo al hacer scroll */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans">
+
+<!-- NAV -->
+<div class="flex bg-cyan-600 bg-opacity-70">
+    <div class="flex items-center justify-between w-full px-4 py-2">
+        <!-- LOGO y TÍTULO -->
+        <div class="flex items-center">
+            <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
+            <a href="index.html" class="text-white text-2xl font-semibold ml-4">Puerto Games</a>
+        </div>
+
+        <!-- MENÚ DERECHO -->
+        <ul class="flex items-center space-x-6 text-white text-lg font-semibold">
+            <li><a class="hover:text-yellow-300 transition" href="index.html">Inicio</a></li>
+            <li><a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
+            <li><a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
+            <li><a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
+            <li><a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div class="max-w-4xl mx-auto p-8 mt-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl">
+    <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Elden Ring</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+        <!-- Imagen del juego -->
+        <img id="gameImage" src="img/imggg.webp" alt="Elden Ring" class="h-64 w-full object-cover rounded-lg shadow-md" />
+
+        <div>
+            <h2 id="gameTitle" class="text-xl font-bold text-cyan-700 mb-2">Explora el mundo abierto de Elden Ring.</h2>
+            <p id="gameDescription" class="text-cyan-700 mb-4">Elden Ring es un juego de rol de acción desarrollado por FromSoftware y publicado por Bandai Namco Entertainment. En este juego de mundo abierto, los jugadores pueden explorar y combatir en un mundo vasto y peligroso.</p>
+            <p id="gamePrice" class="text-xl font-bold text-cyan-700 mb-4">Precio: $59.99</p>
+            <button id="addToCartBtn" class="bg-cyan-700 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition mt-4">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <!-- Galería de imágenes del juego -->
+    <div class="mt-8">
+        <h2 class="text-2xl font-semibold text-cyan-700 mb-4 text-center">Galería de Imágenes</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <img src="img/elden1.jpg" alt="Elden Ring" class="rounded-lg shadow-md" />
+            <img src="img/elden2.jpg" alt="Elden Ring" class="rounded-lg shadow-md" />
+            <img src="img/elden3.jpg" alt="Elden Ring" class="rounded-lg shadow-md" />
+        </div>
+    </div>
+
+    <!-- Comentarios de usuarios -->
+    <div class="mt-8">
+        <h2 class="text-2xl font-semibold text-cyan-700 mb-4 text-center">Comentarios de Usuarios</h2>
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+            <p class="font-semibold text-cyan-700">Carlos López</p>
+            <p class="text-cyan-700">"¡Elden Ring es un juego increíble! La historia, el diseño del mundo y la jugabilidad me mantienen enganchado. Un must para todos los fans de FromSoftware."</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+            <p class="font-semibold text-cyan-700">Ana García</p>
+            <p class="text-cyan-700">"La jugabilidad es excelente y la dificultad justa. ¡Me encanta explorar el mundo abierto y descubrir todos sus secretos!"</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+            <p class="font-semibold text-cyan-700">Juan Pérez</p>
+            <p class="text-cyan-700">"No soy fanático de los juegos de rol, pero Elden Ring me ha conquistado. Es un juego desafiante pero muy gratificante."</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Cuando se presiona el botón "Agregar al carrito"
+    document.getElementById("addToCartBtn").addEventListener("click", function() {
+        Toastify({
+            text: "¡Elden Ring ha sido agregado al carrito!",
+            backgroundColor: "#4CAF50", // Color verde
+            duration: 3000
+        }).showToast();
+    });
+</script>
+
+<!-- FOOTER -->
+<footer class="bg-cyan-600 text-white mt-8">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
+        <div class="text-center">
+            <h3 class="text-lg font-semibold">Puerto Games</h3>
+            <p class="text-sm">Tu portal de videojuegos favoritos</p>
+        </div>
+    </div>
+
+    <div class="text-center text-sm bg-cyan-700 py-2">
+        © 2025 Puerto Games - Todos los derechos reservados.
+    </div>
+</footer>
+
+</body>
+</html>
+

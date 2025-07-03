@@ -13,11 +13,15 @@ El proyecto fue creado con el objetivo de modernizar la gestión del inventario 
 - Gráficos y estadísticas sobre los juegos disponibles.
 
 ✅ **API de Juegos**
-- Búsqueda de juegos por nombre, categoría o plataforma mediante un API REST.
+- Búsqueda de juegos por nombre mediante API RAWG.
 - Integración fácil con otras aplicaciones o sistemas.
 
 ✅ **Gestión de Inventario**
 - Formularios para agregar nuevos juegos al catálogo.
+- Actualización de datos en tiempo real.
+
+✅ **Gestión de Usuarios**
+- Formularios para agregar nuevos usuarios a la base de datos.
 - Actualización de datos en tiempo real.
 
 ✅ **Interfaz Web Moderna**
@@ -29,9 +33,10 @@ El proyecto fue creado con el objetivo de modernizar la gestión del inventario 
 ## 🛠️ Tecnologías Utilizadas
 
 - **Backend**: Java Spring Boot
-- **Base de datos**: MySQL
+- **Base de datos**: MySQL con Laragon
 - **Frontend**: HTML, Tailwind CSS, JavaScript
 - **Control de versiones**: GitHub
+- **Librerias**: Chart.js, Toastify
 
 ---
 

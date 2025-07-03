@@ -8,65 +8,118 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <style>
+        body {
+            background-image: url('img/gJzuHB.jpg'); /* Asegúrate de que la ruta de la imagen sea correcta */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Fondo fijo al hacer scroll */
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100 font-sans">
-<div class="flex bg-cyan-600">
-    <!-- NAV -->
-    <div class="flex items-center bg-cyan-600 px-4 py-2">
-        <!-- LOGO -->
-        <div class="mr-4 flex items-center">
+
+<!-- NAV -->
+<div class="flex bg-stone-950 shadow-xl bg-opacity-30 text-white">
+    <div class="flex flex-col sm:flex-row items-center sm:items-baseline justify-between w-full px-4 py-2">
+
+        <!-- LOGO y TÍTULO -->
+        <div class="flex items-center sm:ml-4">
             <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
-            <ul class="flex justify-center p-4 space-x-6 text-white text-lg font-semibold">
-                <li class="mr-6" id="puertoGames">
-                    <a class="hover:text-yellow-300 transition" href="index.html">Puerto Games</a>
+            <a href="index.html" class="text-white text-2xl font-semibold ml-4 sm:ml-0">Puerto Games</a>
+        </div>
+
+        <!-- MENÚ DERECHO -->
+        <div class="flex justify-center items-center w-full sm:w-auto">
+            <ul class="text-white text-lg font-semibold flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <li class="sm:order-last">
+                    <a class="fa-solid fa-user hover:text-emerald-300 transition text-2xl" href="login.html" id="iconoUsuario"></a>
                 </li>
-                <li class="mr-6">
-                    <a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
-                <li class="mr-6">
-                    <a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-                <li class="mr-6">
-                    <a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-                <li class="mr-6">
-                    <a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
+                <li><a class="hover:text-emerald-300 transition" href="index.html">Inicio</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="nosotros.html">Nosotros</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="stockTienda.html">Stock</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="busqueda.html">Juegos</a></li>
             </ul>
         </div>
+
     </div>
 </div>
 
 
+
+<!-- CONTENIDO PRINCIPAL -->
 <div class="max-w-4xl mx-auto p-8 mt-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl">
-    <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Animal Crossing</h1>
+    <h1 class="text-4xl font-extrabold mb-6 text-center text-stone-950 drop-shadow">Animal Crossing</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-        <img src="../frontend/img/AnimalCrossing.webp" alt="nosotros"
-             class="h-64 w-full object-cover rounded-lg" />
+        <!-- Imagen del juego -->
+        <img id="gameImage" src="img/img1.jpg" alt="doom" class="h-64 w-full object-cover rounded-lg shadow-md" />
+
         <div>
-            <h2 class="text-xl font-bold text-cyan-700 mb-2">Crea tu paraíso personal y vive a tu ritmo en una isla llena de adorables vecinos y sorpresas diarias.</h2>
-            <p class="text-cyan-700">Animal Crossing es un encantador videojuego de simulación de vida en el que te mudas a una isla 
+            <h2 id="gameTitle" class="text-xl font-bold text-stone-950 mb-2">Crea tu paraíso personal y vive a tu ritmo en una isla llena de adorables vecinos y sorpresas diarias.</h2>
+            <p id="gameDescription" class="text-stone-9500 mb-4">Animal Crossing es un encantador videojuego de simulación de vida en el que te mudas a una isla
                 (o pueblo) habitada por animales antropomórficos. Puedes personalizar tu hogar, pescar, cazar insectos, decorar tu entorno
-                y entablar amistad con los vecinos. Su estilo relajado y su mundo abierto lo hacen ideal para disfrutar a tu propio ritmo.
-            </p>
-            
+                y entablar amistad con los vecinos.</p>
+            <p id="gamePrice" class="text-xl font-bold text-stone-9500 mb-4">Precio: $29.99</p>
+            <button id="addToCartBtn" class="bg-teal-950 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition mt-4">Agregar al carrito</button>
         </div>
     </div>
+
+    <!-- Galería de imágenes del juego -->
+    <div class="mt-8">
+        <h2 class="text-2xl font-semibold text-stone-950 mb-4 text-center">Galería de Imágenes</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <img src="img/AnimalCrossing.webp" alt="doom1" class="rounded-lg shadow-md" />
+            <img src="img/crossing2.webp" alt="doom2" class="rounded-lg shadow-md" />
+            <img src="img/crossing3.jpg" alt="doom3" class="rounded-lg shadow-md" />
+        </div>
+    </div>
+
+    <!-- Comentarios de usuarios -->
+    <div class="mt-8">
+        <h2 class="text-2xl font-semibold text-stone-950 mb-4 text-center">Comentarios de Usuarios</h2>
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+            <p class="font-semibold text-stone-950">Carlos López</p>
+            <p class="text-stone-950">"¡Animal Crossing es un juego increíble! La historia, el diseño del mundo y la jugabilidad me mantienen enganchado. Un must para todos los fans de FromSoftware."</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+            <p class="font-semibold text-stone-950">Ana García</p>
+            <p class="text-stone-950">"La jugabilidad es excelente y la dificultad justa. ¡Me encanta explorar el mundo abierto y descubrir todos sus secretos!"</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+            <p class="font-semibold text-stone-9500">Juan Pérez</p>
+            <p class="text-stone-950">"No soy fanático de los juegos de rol, pero Animal Crossing me ha conquistado. Es un juego desafiante pero muy gratificante."</p>
+        </div>
+    </div>
+
 </div>
 
+<script>
+    // Cuando se presiona el botón "Agregar al carrito"
+    document.getElementById("addToCartBtn").addEventListener("click", function() {
+        Toastify({
+            text: "¡Elden Ring ha sido agregado al carrito!",
+            backgroundColor: "#4CAF50", // Color verde
+            duration: 3000
+        }).showToast();
+    });
+</script>
 
-</div>
-
-
-<footer class="bg-cyan-600 text-white mt-8">
+<!-- FOOTER -->
+<footer class="bg-stone-950 shadow-xl bg-opacity-70 text-white mt-8">
     <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
-
         <div class="text-center">
             <h3 class="text-lg font-semibold">Puerto Games</h3>
             <p class="text-sm">Tu portal de videojuegos favoritos</p>
         </div>
     </div>
 
-    <div class="text-center text-sm bg-cyan-700 py-2">
+    <div class="text-center text-sm bg-stone-950 bg-opactity-80 py-2">
         © 2025 Puerto Games - Todos los derechos reservados.
     </div>
 </footer>
+
+
 </body>
 </html>
+

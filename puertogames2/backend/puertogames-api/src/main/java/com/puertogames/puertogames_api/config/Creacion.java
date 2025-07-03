@@ -48,7 +48,7 @@ public class Creacion {
             if (repo.count() == 0) {
                 repo.save(Videojuego.builder()
                         .titulo("Super Mario Bros")
-                        .genero("Diversion puzzles")
+                        .genero("Puzzle")
                         .plataforma("Nintendo")
                         .precio(30000)
                         .stock(9)
@@ -56,7 +56,7 @@ public class Creacion {
 
                 repo.save(Videojuego.builder()
                         .titulo("Animal Crossing")
-                        .genero("Cozy")
+                        .genero("Aventura")
                         .plataforma("Nintendo")
                         .precio(20000)
                         .stock(20)
@@ -64,7 +64,7 @@ public class Creacion {
 
                 repo.save(Videojuego.builder()
                         .titulo("DOOM: The Dark Ages")
-                        .genero("Puro poder")
+                        .genero("Accion")
                         .plataforma("Play Station")
                         .precio(45000)
                         .stock(1)

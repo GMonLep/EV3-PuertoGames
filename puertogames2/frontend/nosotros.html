@@ -21,43 +21,51 @@
 <body class="bg-gray-100 font-sans">
 
 <!-- NAV -->
-<div class="flex bg-cyan-600 bg-opacity-70">
-    <div class="flex items-center justify-between w-full px-4 py-2">
+<div class="flex bg-stone-950 shadow-xl bg-opacity-30 text-white">
+    <div class="flex flex-col sm:flex-row items-center sm:items-baseline justify-between w-full px-4 py-2">
+
         <!-- LOGO y TÍTULO -->
-        <div class="flex items-center">
+        <div class="flex items-center sm:ml-4">
             <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
-            <a href="index.html" class="text-white text-2xl font-semibold ml-4">Puerto Games</a>
+            <a href="index.html" class="text-white text-2xl font-semibold ml-4 sm:ml-0">Puerto Games</a>
         </div>
 
         <!-- MENÚ DERECHO -->
-        <ul class="flex items-center space-x-6 text-white text-lg font-semibold">
-            <li><a class="hover:text-yellow-300 transition" href="index.html">Inicio</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-            <li><a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
-        </ul>
+        <div class="flex justify-center items-center w-full sm:w-auto">
+            <ul class="text-white text-lg font-semibold flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <li class="sm:order-last">
+                    <a class="fa-solid fa-user hover:text-emerald-300 transition text-2xl" href="login.html" id="iconoUsuario"></a>
+                </li>
+                <li><a class="hover:text-emerald-300 transition" href="index.html">Inicio</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="nosotros.html">Nosotros</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="stockTienda.html">Stock</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="busqueda.html">Juegos</a></li>
+            </ul>
+        </div>
+
     </div>
 </div>
 
+
+
 <!-- CONTENIDO PRINCIPAL -->
 <div class="max-w-4xl mx-auto p-8 mt-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl">
-    <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">¡Ven a visitarnos!</h1>
+    <h1 class="text-4xl font-extrabold mb-6 text-center text-stone-950 drop-shadow">¡Ven a visitarnos!</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
         <img src="../frontend/img/nosotros.webp" alt="nosotros"
              class="h-64 w-full object-cover rounded-lg" />
         <div>
-            <h2 class="text-xl font-bold text-cyan-700 mb-2">Explora nuestro mundo de consolas, juegos, accesorios y coleccionables.</h2>
-            <p class="text-cyan-700">¿Buscas lo último en PlayStation, Xbox o Nintendo? ¡Lo tenemos!</p>
-            <p class="text-cyan-700">Disfruta de ofertas exclusivas y lanzamientos que no querrás perderte.</p>
-            <p class="text-cyan-700">Desde clásicos legendarios hasta las últimas novedades, hay algo para tod@s.</p>
-            <p class="text-cyan-700">¡Haz de PuertoGames tu punto de encuentro para vivir tu pasión por los videojuegos!</p>
+            <h2 class="text-xl font-bold text-stone-950 mb-2">Explora nuestro mundo de consolas, juegos, accesorios y coleccionables.</h2>
+            <p class="ttext-stone-950">¿Buscas lo último en PlayStation, Xbox o Nintendo? ¡Lo tenemos!</p>
+            <p class="text-stone-950">Disfruta de ofertas exclusivas y lanzamientos que no querrás perderte.</p>
+            <p class="text-stone-950">Desde clásicos legendarios hasta las últimas novedades, hay algo para tod@s.</p>
+            <p class="text-stone-950">¡Haz de PuertoGames tu punto de encuentro para vivir tu pasión por los videojuegos!</p>
         </div>
     </div>
 </div>
 
 <!-- FOOTER -->
-<footer class="bg-cyan-600 text-white mt-8">
+<footer class="bg-stone-950 shadow-xl bg-opacity-70 text-white mt-8">
     <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
         <div class="text-center">
             <h3 class="text-lg font-semibold">Puerto Games</h3>
@@ -65,7 +73,7 @@
         </div>
     </div>
 
-    <div class="text-center text-sm bg-cyan-700 py-2">
+    <div class="text-center text-sm bg-stone-950 bg-opactity-80 py-2">
         © 2025 Puerto Games - Todos los derechos reservados.
     </div>
 </footer>

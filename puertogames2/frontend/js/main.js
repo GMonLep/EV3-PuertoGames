@@ -1,8 +1,20 @@
+console.log("main.js SE CARGO BIEN");
+
+
 //guardar jueguillos
 const API = 'http://localhost:8080/api/videojuegos';
 
 const form = document.getElementById('form');
 const lista = document.getElementById('lista');
+
+
+
+//grafico x genero
+fetch(API)
+  .then(res => res.json())
+    .then(data => {
+       console.log("Datitos:", data);
+    });
 
 
 //Declarar cada id del HTML y almacenarlo en una variable
@@ -50,7 +62,7 @@ function buscarJuegos(nombreJuego){
   .finally(()=>{
     loader.classList.add('hidden');
   });
-};
+}
 
 
 
@@ -71,83 +83,7 @@ function mostrarResultados(juegos){
 
   });
 
-};
-
-///SCRIPT GRAFICOS
-
-//Destruir un gráfico si es que existe para evitar superposición
-        if(window.myChart){
-            window.myChart.destroy();
-        }
-
-// MI PRIMER PRIMER GRAFICO DE BARRAS
-const ctx = document.getElementById('graficoCategorias').getContext('2d');
-window.myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Aventura', 'Rol', 'Acción'],
-        datasets: [{
-            label: 'Stock disponible',
-            data: [25, 18, 30],
-            backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
-            borderRadius: 5
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            tooltip: {
-                callbacks: {
-                    label: context => `${context.parsed.y} juegos`
-                }
-            }
-        },
-        scales: {
-            y: { beginAtZero: true, title: { display: true, text: 'Cantidad en stock' } },
-            x: { title: { display: true, text: 'Categoría' } }
-        }
-    }
-});
-
-//MI SEGUNDO GRAFICO DE PASTEL.
-const ctxMensual1 = document.getElementById('graficoStockMensual').getContext('2d');
-window.myChart = new Chart(ctxMensual1, {
-  type: 'pie',
-  data: {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
-    datasets: [{
-      data: [40, 30, 25, 20, 35],
-      backgroundColor: ['#60A5FA', '#FBBF24', '#34D399', '#F472B6', '#A78BFA'],
-      borderColor: '#FFFFFF',
-      borderWidth: 2
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'bottom',
-        labels: {
-          color: '#374151',
-          font: {
-            size: 14,
-            weight: '500'
-          }
-        }
-      },
-      tooltip: {
-        callbacks: {
-          label: context => `${context.label}: ${context.parsed} juegos`
-        }
-      }
-    }
-  }
-});
-
-
-
-
+}
 
 //AGREGUE TOASTIFY
 
@@ -187,66 +123,3 @@ window.myChart = new Chart(ctxMensual1, {
   }
 });
 
-
-
-    //Función de cargargg
-    async function cargar(){
-        const res = await fetch(API);
-        const data = await res.json();
-    //alt GR + }}
-        lista.innerHTML =`
-            <table class="table-auto w-full text-left bg-white shadow-md rounded overflow-hidden">
-                <thead class="bg-blue-600 text-white">
-                    <tr>
-                        <th className="px-4 py-2">Título</th>
-                        <th className="px-4 py-2">Género</th>
-                        <th className="px-4 py-2">Plataforma</th>
-                        <th className="px-4 py-2">Precio</th>
-                        <th className="px-4 py-2">Stock</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaBody" class="divide-y divide-gray-200"></tbody>
-            </table>`;
-
-        const tablaBody = document.getElementById('tablaBody');
-        const labels = [];
-        const datos = [];
-
-        //FOR=  podemos detenerlo ///ForEach= no se detiene
-        data.forEach(v =>{
-            tablaBody.innerHTML +=`
-            <tr>
-                <td class="px-4 py-2">${v.titulo}</td>
-                <td class="px-4 py-2">${v.genero}</td>
-                <td class="px-4 py-2">${v.plataforma}</td>
-                <td class="px-4 py-2">${v.precio}</td>
-                <td class="px-4 py-2">${v.stock}</td>
-            </tr>
-            `;
-            labels.push(v.titulo);
-            datos.push(v.stock);
-        });
-
-   
-
-        //Gráfico
-        window.myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Stock por Videojuego',
-                    data: datos,
-                    backgroundColor: 'rgba(59, 130, 256, 0.6)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true}
-                }
-            }
-        });
-    }
-cargar();

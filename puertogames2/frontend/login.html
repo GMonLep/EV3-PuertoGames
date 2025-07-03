@@ -18,24 +18,32 @@
 <body class="bg-gray-100 font-sans">
 
 <!-- NAV -->
-<div class="flex bg-cyan-600 bg-opacity-70">
-    <div class="flex items-center justify-between w-full px-4 py-2">
+<div class="flex bg-stone-950 shadow-xl bg-opacity-30 text-white">
+    <div class="flex flex-col sm:flex-row items-center sm:items-baseline justify-between w-full px-4 py-2">
+
         <!-- LOGO y TÍTULO -->
-        <div class="flex items-center">
+        <div class="flex items-center sm:ml-4">
             <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
-            <a href="index.html" class="text-white text-2xl font-semibold ml-4">Puerto Games</a>
+            <a href="index.html" class="text-white text-2xl font-semibold ml-4 sm:ml-0">Puerto Games</a>
         </div>
 
         <!-- MENÚ DERECHO -->
-        <ul class="flex items-center space-x-6 text-white text-lg font-semibold">
-            <li><a class="hover:text-yellow-300 transition" href="index.html">Inicio</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-            <li><a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
-        </ul>
+        <div class="flex justify-center items-center w-full sm:w-auto">
+            <ul class="text-white text-lg font-semibold flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <li class="sm:order-last">
+                    <a class="fa-solid fa-user hover:text-emerald-300 transition text-2xl" href="login.html" id="iconoUsuario"></a>
+                </li>
+                <li><a class="hover:text-emerald-300 transition" href="index.html">Inicio</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="nosotros.html">Nosotros</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="stockTienda.html">Stock</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="busqueda.html">Juegos</a></li>
+            </ul>
+        </div>
+
     </div>
 </div>
+
+
 
 <!-- LOGIN FORM -->
 <div class="flex items-center justify-center min-h-screen">
@@ -87,7 +95,7 @@
                 mensaje.textContent = 'Login exitoso';
                 // Redirigir al index.html si el login es exitoso
                 setTimeout(() => {
-                    window.location.href = 'index.html';
+                    window.location.href = 'stockTienda.html';
                 }, 1000); // Espera 1 segundo antes de redirigir
             } else if (res.status === 401) {
                 mensaje.textContent = 'Correo o contraseña incorrectos';
@@ -100,7 +108,8 @@
     });
 </script>
 
-<footer class="bg-cyan-600 text-white mt-8">
+<!-- FOOTER -->
+<footer class="bg-stone-950 shadow-xl bg-opacity-70 text-white mt-8">
     <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
         <div class="text-center">
             <h3 class="text-lg font-semibold">Puerto Games</h3>
@@ -108,11 +117,10 @@
         </div>
     </div>
 
-    <div class="text-center text-sm bg-cyan-700 py-2">
+    <div class="text-center text-sm bg-stone-950 bg-opactity-80 py-2">
         © 2025 Puerto Games - Todos los derechos reservados.
     </div>
 </footer>
-
 </body>
 </html>
 

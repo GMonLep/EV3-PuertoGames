@@ -4,7 +4,10 @@ import com.puertogames.puertogames_api.model.Videojuego;
 import com.puertogames.puertogames_api.service.VideoJuegoService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/videojuegos")
@@ -23,6 +26,81 @@ public class VideojuegoController {
         return videojuegoService.obtenerTodos();
     }
 
+    @GetMapping("/stock")
+    public List<Map<String, Object>> getCategoriaStock() {
+        List<Videojuego> videojuegos = videojuegoService.obtenerTodos();
+
+        return videojuegos.stream()
+                .collect(Collectors.groupingBy(
+                        Videojuego::getGenero,
+                        Collectors.summingInt(Videojuego::getStock)
+                ))
+                .entrySet().stream()
+                .map(entry -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("categoria", entry.getKey());
+                    map.put("stock", entry.getValue());
+                    return map;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/plataforma")
+    public List<Map<String, Object>> getPlatformaStock() {
+        List<Videojuego> videojuegos = videojuegoService.obtenerTodos();
+
+        return videojuegos.stream()
+                .collect(Collectors.groupingBy(
+                        Videojuego::getPlataforma,
+                        Collectors.summingInt(Videojuego::getStock)
+                ))
+                .entrySet().stream()
+                .map(entry -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("plataforma", entry.getKey());
+                    map.put("stock", entry.getValue());
+                    return map;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/juego")
+    public List<Map<String, Object>> getStockJuego() {
+        List<Videojuego> videojuegos = videojuegoService.obtenerTodos();
+
+        return videojuegos.stream()
+                .collect(Collectors.groupingBy(
+                        Videojuego::getTitulo,
+                        Collectors.summingInt(Videojuego::getStock)
+                ))
+                .entrySet().stream()
+                .map(entry -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("titulo", entry.getKey());
+                    map.put("stock", entry.getValue());
+                    return map;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @GetMapping("/precio")
+    public List<Map<String, Object>> getPrecioPlataforma() {
+        List<Videojuego> videojuegos = videojuegoService.obtenerTodos();
+
+        return videojuegos.stream()
+                .collect(Collectors.groupingBy(
+                        Videojuego::getPlataforma,
+                        Collectors.summingDouble(Videojuego::getPrecio)
+                ))
+                .entrySet().stream()
+                .map(entry -> {
+                    Map<String, Object> map = new HashMap<>();
+                    map.put("plataforma", entry.getKey());
+                    map.put("precio", entry.getValue());
+                    return map;
+                })
+                .collect(Collectors.toList());
+    }
     // Endpoint para crear un nuevo videojuego
     @PostMapping
     public Videojuego crear(@RequestBody Videojuego videojuego) {
@@ -41,5 +119,6 @@ public class VideojuegoController {
     public void eliminar(@PathVariable Long id) {
         videojuegoService.eliminarVideojuego(id);
     }
+
 }
 

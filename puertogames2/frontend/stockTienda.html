@@ -21,103 +21,245 @@
 <body class="bg-gray-100 font-sans">
 
 <!-- NAV -->
-<div class="flex bg-cyan-600 bg-opacity-70">
-    <div class="flex items-center justify-between w-full px-4 py-2">
+<div class="flex bg-stone-950 shadow-xl bg-opacity-30 text-white">
+    <div class="flex flex-col sm:flex-row items-center sm:items-baseline justify-between w-full px-4 py-2">
+
         <!-- LOGO y TÍTULO -->
-        <div class="flex items-center">
+        <div class="flex items-center sm:ml-4">
             <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
-            <a href="index.html" class="text-white text-2xl font-semibold ml-4">Puerto Games</a>
+            <a href="index.html" class="text-white text-2xl font-semibold ml-4 sm:ml-0">Puerto Games</a>
         </div>
 
         <!-- MENÚ DERECHO -->
-        <ul class="flex items-center space-x-6 text-white text-lg font-semibold">
-            <li><a class="hover:text-yellow-300 transition" href="index.html">Inicio</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="nosotros.html">Nosotros</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="stockTienda.html">Stock</a></li>
-            <li><a class="hover:text-yellow-300 transition" href="busqueda.html">Juegos</a></li>
-            <li><a class="fa-solid fa-user hover:text-yellow-300 transition" href="login.html" id="iconoUsuario"></a></li>
-        </ul>
+        <div class="flex justify-center items-center w-full sm:w-auto">
+            <ul class="text-white text-lg font-semibold flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+                <li class="sm:order-last">
+                    <a class="fa-solid fa-user hover:text-emerald-300 transition text-2xl" href="login.html" id="iconoUsuario"></a>
+                </li>
+                <li><a class="hover:text-emerald-300 transition" href="index.html">Inicio</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="nosotros.html">Nosotros</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="stockTienda.html">Stock</a></li>
+                <li><a class="hover:text-emerald-300 transition" href="busqueda.html">Juegos</a></li>
+            </ul>
+        </div>
+
     </div>
 </div>
 
+
+
 <!-- TITULO -->
 <div class="max-w-4xl mx-auto p-8 mt-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl">
-    <h1 class="text-4xl font-extrabold mb-6 text-center text-cyan-800 drop-shadow">Stock Sucursal Puerto Montt</h1>
+    <h1 class="text-4xl font-extrabold mb-6 text-center text-stone-950 drop-shadow">Stock Sucursal Puerto Montt</h1>
 
     <!-- FORMULARIO -->
     <form method="post" id="formularioVideojuego" class="flex flex-wrap gap-2 justify-center mb-8">
-        <input type="text" id="titulo" name="titulo" placeholder="Mario Bross" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="text" id="genero" name="genero" placeholder="Aventura" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="text" id="plataforma" name="plataforma" placeholder="NES" class="border border-cyan-300 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="number" id="precio" name="precio" placeholder="90000" class="border border-cyan-300 px-3 py-2 w-24 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <input type="number" id="stock" name="stock" placeholder="20" class="border border-cyan-300 px-3 py-2 w-20 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
-        <button class="bg-cyan-700 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition" id="btn">Agregar</button>
+        <input type="text" id="titulo" name="titulo" placeholder="Mario Bross" class="border border-stone-800 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="text" id="genero" name="genero" placeholder="Aventura" class="border border-stone-800 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="text" id="plataforma" name="plataforma" placeholder="NES" class="border border-stone-800 px-3 py-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="number" id="precio" name="precio" placeholder="90000" class="border border-stone-800 px-3 py-2 w-24 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <input type="number" id="stock" name="stock" placeholder="20" class="border border-stone-800 px-3 py-2 w-20 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-cyan-500">
+        <button class="bg-teal-950 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition" id="btn">Agregar</button>
     </form>
 
-    <!-- LISTA -->
-    <div id="lista" class="bg-white rounded-lg shadow p-4 mb-8"></div>
+
 
     <!-- GRÁFICOS -->
-    <h2 class="text-xl font-bold text-center mb-4 text-cyan-800">Stock por Categorías</h2>
-    <canvas id="graficoCategorias" class="w-full h-64 mb-8"></canvas>
+    <h2 class="text-xl font-bold text-center mb-4 text-stone-950">Stock por Categoría</h2>
+    <canvas id="graficoGenero" class="w-full h-64 mb-8"></canvas>
 
-    <h2 class="text-xl font-bold text-center mb-4 text-cyan-800">Stock Mensual</h2>
-    <canvas id="graficoStockMensual" class="w-full h-64"></canvas>
+    <!--4. stock por juego--->
+    <div class="max-w-4xl mx-auto p-7">
+        <h2 class="text-xl font-bold text-center mb-4">Stock por Juego</h2>
+        <canvas id="graficoJuegos" class="w-full h-48"></canvas>
+    </div>
+
+
+    <!--3. stock por plataforma--->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="max-w-4xl mx-auto p-7">
+        <h2 class="text-xl font-bold text-center mb-4">Stock por Plataforma (Agregados)</h2>
+        <canvas id="graficoPlataformas" class="w-full h-48"></canvas>
+    </div>
+
+    <div class="max-w-4xl mx-auto p-7">
+        <h2 class="text-xl font-bold text-center mb-4 text-stone-950">Precios por plataforma</h2>
+        <canvas id="grafigoPrecios" class="w-full h-64"></canvas>
+    </div></div>
+
+
+
 </div>
 
 <script>
     // Gráfico de categorías (barras)
-    const ctxCategorias = document.getElementById('graficoCategorias').getContext('2d');
-    new Chart(ctxCategorias, {
-        type: 'bar',
-        data: {
-            labels: ['Aventura', 'Rol', 'Acción'],
-            datasets: [{
-                label: 'Stock disponible',
-                data: [25, 18, 30],
-                backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
-                borderRadius: 5
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { display: false },
-                tooltip: {
-                    callbacks: { label: context => `${context.parsed.y} juegos` }
-                }
-            },
-            scales: {
-                y: { beginAtZero: true, title: { display: true, text: 'Cantidad en stock' } },
-                x: { title: { display: true, text: 'Categoría' } }
-            }
-        }
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('http://localhost:8080/api/videojuegos/stock')
+            .then(response => response.json())
+            .then(data => {
+                const categoria = data.map(item => item.categoria);
+                const stock = data.map(item => item.stock);
+
+                const ctxCategorias = document.getElementById('graficoGenero').getContext('2d');
+                new Chart(ctxCategorias, {
+                    type: 'line',
+                    data: {
+                        labels: categoria,
+                        datasets: [{
+                            label: 'Stock disponible',
+                            data: stock,
+                            backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: context => `${context.parsed.y} juegos`
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Cantidad en stock' }
+                            },
+                            x: {
+                                title: { display: true, text: 'Categoría' }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error buscando los datillos', error);
+            });
     });
 
-    // Gráfico mensual (pie)
-    const ctxMensual = document.getElementById('graficoStockMensual').getContext('2d');
-    new Chart(ctxMensual, {
-        type: 'pie',
-        data: {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
-            datasets: [{
-                label: 'Stock',
-                data: [40, 30, 25, 20, 35],
-                backgroundColor: ['#60A5FA', '#FBBF24', '#34D399', '#F472B6', '#A78BFA'],
-                borderColor: '#FFFFFF',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'bottom' },
-                tooltip: {
-                    callbacks: { label: context => `${context.label}: ${context.parsed} juegos` }
-                }
-            }
-        }
+
+    // Gráfico precios-plataforma
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('http://localhost:8080/api/videojuegos/precio')
+            .then(response => response.json())
+            .then(data => {
+                const plataforma = data.map(item => item.plataforma);
+                const precio = data.map(item => item.precio);
+
+                const ctxMensual = document.getElementById('grafigoPrecios').getContext('2d');
+                new Chart(ctxMensual, {
+                    type: 'bar',
+                    data: {
+                        labels: plataforma,
+                        datasets: [{
+                            label: 'Stock',
+                            data: precio,
+                            backgroundColor: ['#60A5FA', '#FBBF24', '#34D399', '#F472B6', '#A78BFA'],
+                            borderColor: '#FFFFFF',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'bottom' },
+                            tooltip: {
+                                callbacks: { label: context => `${context.label}: ${context.parsed} juegos` }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error buscando los datillos', error);
+            });
     });
+
+
+   //demas
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('http://localhost:8080/api/videojuegos/plataforma')
+            .then(response => response.json())
+            .then(data => {
+                const plataforma = data.map(item => item.plataforma);
+                const stock = data.map(item => item.stock);
+
+                const ctxMensual = document.getElementById('graficoPlataformas').getContext('2d');
+                new Chart(ctxMensual, {
+                    type: 'pie',
+                    data: {
+                        labels: plataforma,
+                        datasets: [{
+                            label: 'Stock',
+                            data: stock,
+                            backgroundColor: ['#60A5FA', '#FBBF24', '#34D399', '#F472B6', '#A78BFA'],
+                            borderColor: '#FFFFFF',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'bottom' },
+                            tooltip: {
+                                callbacks: { label: context => `${context.label}: ${context.parsed} juegos` }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error buscando los datillos', error);
+            });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        fetch('http://localhost:8080/api/videojuegos/juego')
+            .then(response => response.json())
+            .then(data => {
+                const juego = data.map(item => item.titulo);
+                const stock = data.map(item => item.stock);
+
+                const ctxCategorias = document.getElementById('graficoJuegos').getContext('2d');
+                new Chart(ctxCategorias, {
+                    type: 'bar',
+                    data: {
+                        labels: juego,
+                        datasets: [{
+                            label: 'Stock disponible',
+                            data: stock,
+                            backgroundColor: ['#60A5FA', '#A78BFA', '#F87171'],
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: context => `${context.parsed.y} juegos`
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: { display: true, text: 'Cantidad en stock' }
+                            },
+                            x: {
+                                title: { display: true, text: 'Nombre del Juego' }
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error buscando los datillos', error);
+            });
+    });
+
 
     // Agregar videojuego al backend
     document.getElementById("formularioVideojuego").addEventListener("submit", function(e) {
@@ -160,19 +302,22 @@
     });
 </script>
 
-<footer class="bg-cyan-600 text-white mt-8">
+
+<script src="../frontend/js/main.js"></script>
+<!-- FOOTER -->
+<footer class="bg-stone-950 shadow-xl bg-opacity-70 text-white mt-8">
     <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col items-center space-y-4">
         <div class="text-center">
             <h3 class="text-lg font-semibold">Puerto Games</h3>
             <p class="text-sm">Tu portal de videojuegos favoritos</p>
         </div>
     </div>
-    <div class="text-center text-sm bg-cyan-700 py-2">
+
+    <div class="text-center text-sm bg-stone-950 bg-opactity-80 py-2">
         © 2025 Puerto Games - Todos los derechos reservados.
     </div>
 </footer>
-
-<script src="../frontend/js/main.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>

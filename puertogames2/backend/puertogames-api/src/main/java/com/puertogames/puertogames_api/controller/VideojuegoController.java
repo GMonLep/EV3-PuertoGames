@@ -123,7 +123,7 @@ public class VideojuegoController {
     @Value("${RAWG_API_KEY}")
     private String apiKey;
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscarEnRawg")
     public ResponseEntity<?> buscarJuego(@RequestParam String nombre) {
         String url = "https://api.rawg.io/api/games?key=" + apiKey + "&search=" + nombre;
 

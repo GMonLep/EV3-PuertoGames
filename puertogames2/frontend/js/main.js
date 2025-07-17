@@ -2,7 +2,7 @@ console.log("main.js SE CARGO BIEN");
 
 
 //guardar jueguillos
-const API = 'http://localhost:8080/api/videojuegos';
+const API = 'https://ev3-puertogames-production.up.railway.app';
 
 const form = document.getElementById('form');
 const lista = document.getElementById('lista');

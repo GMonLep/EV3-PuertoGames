@@ -95,7 +95,7 @@
 <script>
     // Gráfico de categorías (barras)
     document.addEventListener('DOMContentLoaded', function () {
-        fetch('http://localhost:8080/api/videojuegos/stock')
+        fetch('https://ev3-puertogames-production.up.railway.app/api/videojuegos/stock')
             .then(response => response.json())
             .then(data => {
                 const categoria = data.map(item => item.categoria);
@@ -143,7 +143,7 @@
 
     // Gráfico precios-plataforma
     document.addEventListener('DOMContentLoaded', function () {
-        fetch('http://localhost:8080/api/videojuegos/precio')
+        fetch('https://ev3-puertogames-production.up.railway.app/api/videojuegos/precio')
             .then(response => response.json())
             .then(data => {
                 const plataforma = data.map(item => item.plataforma);
@@ -181,7 +181,7 @@
 
    //demas
     document.addEventListener('DOMContentLoaded', function () {
-        fetch('http://localhost:8080/api/videojuegos/plataforma')
+        fetch('https://ev3-puertogames-production.up.railway.app/api/videojuegos/plataforma')
             .then(response => response.json())
             .then(data => {
                 const plataforma = data.map(item => item.plataforma);
@@ -216,7 +216,7 @@
             });
     });
     document.addEventListener('DOMContentLoaded', function () {
-        fetch('http://localhost:8080/api/videojuegos/juego')
+        fetch('https://ev3-puertogames-production.up.railway.app/api/videojuegos/juego')
             .then(response => response.json())
             .then(data => {
                 const juego = data.map(item => item.titulo);
@@ -276,7 +276,7 @@
 
         const videojuegoData = { titulo, genero, plataforma, stock, precio };
 
-        fetch('http://localhost:8080/api/videojuegos', {
+        fetch('https://ev3-puertogames-production.up.railway.app/api/videojuegos', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(videojuegoData),

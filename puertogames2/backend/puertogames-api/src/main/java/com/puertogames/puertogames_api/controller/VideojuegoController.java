@@ -3,6 +3,9 @@ package com.puertogames.puertogames_api.controller;
 import com.puertogames.puertogames_api.model.Videojuego;
 import com.puertogames.puertogames_api.service.VideoJuegoService;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 import java.util.HashMap;
 import java.util.List;

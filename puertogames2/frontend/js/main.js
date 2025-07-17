@@ -38,7 +38,7 @@ function buscarJuegos(nombreJuego){
   loader.classList.remove('hidden');
   results.innerHTML= '';
   //consulta a la API
-  const url = `https://ev3-puertogames-production.up.railway.app/api/videojuegos/buscarEnRawg?nombre=${encodeURIComponent(nombreJuego)}`;
+  const url = `https://ev3-puertogames-production.up.railway.app/api/videojuegos/rawg/buscar?nombre=${encodeURIComponent(nombreJuego)}`;
 
   //Fetch permita hacer consultas http GET
   //verifica si la respuesta es correcta y conviete JSON

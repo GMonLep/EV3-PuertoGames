@@ -120,21 +120,16 @@ public class VideojuegoController {
         videojuegoService.eliminarVideojuego(id);
     }
 
-    @Value("${RAWG_API_KEY}")
-    private String apiKey;
-
-    @GetMapping("/buscarEnRawg")
-    public ResponseEntity<?> buscarJuego(@RequestParam String nombre) {
-        String url = "https://api.rawg.io/api/games?key=${apiKey}&search=${encodeURIComponent(nombreJuego)}";
-
-        RestTemplate restTemplate = new RestTemplate();
-        try {
-            String response = restTemplate.getForObject(url, String.class);
-            return ResponseEntity.ok().body(response);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body("Error al consultar API RAWG: " + e.getMessage());
-        }
+    @GetMapping("/rawg/buscar")
+    @CrossOrigin(origins = "*")
+    public String buscarJuego(@RequestParam String nombre) {
+    String apiKey = "5c9b0cea670f41499bf38f1eaded59cf";
+    String url = "https://api.rawg.io/api/games?key=" + apiKey + "&search=" + URLEncoder.encode(nombre, StandardCharsets.UTF_8);
+    
+    RestTemplate restTemplate = new RestTemplate();
+    return restTemplate.getForObject(url, String.class);
     }
+
 
 }
 

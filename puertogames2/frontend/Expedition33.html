@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>PuertoGames</title>
+    <title>Expedition 33 | PuertoGames</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -10,10 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
         body {
-            background-image: url('img/gJzuHB.jpg'); /* Asegúrate de que la ruta de la imagen sea correcta */
+            background-image: url('img/gJzuHB.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Fondo fijo al hacer scroll */
+            background-attachment: fixed;
         }
     </style>
 </head>
@@ -23,18 +23,14 @@
 <!-- NAV -->
 <div class="flex bg-stone-950 shadow-xl bg-opacity-30 text-white">
     <div class="flex flex-col sm:flex-row items-center sm:items-baseline justify-between w-full px-4 py-2">
-
-        <!-- LOGO y TÍTULO -->
         <div class="flex items-center sm:ml-4">
             <img src="img/ImagenLogo.png" alt="Puerto Games Logo" class="h-14 w-auto" />
             <a href="index.html" class="text-white text-2xl font-semibold ml-4 sm:ml-0">Puerto Games</a>
         </div>
-
-        <!-- MENÚ DERECHO -->
         <div class="flex justify-center items-center w-full sm:w-auto">
             <ul class="text-white text-lg font-semibold flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                 <li class="sm:order-last">
-                    <a class="fa-solid fa-user hover:text-emerald-300 transition text-2xl" href="login.html" id="iconoUsuario"></a>
+                    <a class="fa-solid fa-user hover:text-emerald-300 transition text-2xl" href="login.html"></a>
                 </li>
                 <li><a class="hover:text-emerald-300 transition" href="index.html">Inicio</a></li>
                 <li><a class="hover:text-emerald-300 transition" href="catalogo.html">Catálogo</a></li>
@@ -43,25 +39,19 @@
                 <li><a class="hover:text-emerald-300 transition" href="stockTienda.html">Stock</a></li>
             </ul>
         </div>
-
     </div>
 </div>
 
-
-
 <!-- CONTENIDO PRINCIPAL -->
 <div class="max-w-4xl mx-auto p-8 mt-6 bg-white/80 backdrop-blur-md rounded-xl shadow-xl">
-    <h1 class="text-4xl font-extrabold mb-6 text-center text-stone-950 drop-shadow">DOOM: The Dark Ages</h1>
+    <h1 class="text-4xl font-extrabold mb-6 text-center text-stone-950 drop-shadow">Expedition 33</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-        <!-- Imagen del juego -->
-        <img id="gameImage" src="img/img3.webp" alt="doom" class="h-64 w-full object-cover rounded-lg shadow-md" />
+        <img src="img/expedition33.jpg" alt="Expedition 33" class="h-64 w-full object-cover rounded-lg shadow-md" />
 
         <div>
-            <h2 id="gameTitle" class="text-xl font-bold text-stone-950 mb-2">Sumérgete en una era oscura y medieval donde el Slayer combate demonios con pura brutalidad.</h2>
-            <p id="gameDescription" class="text-stone-9500 mb-4">Prepárate para desatar la furia en DOOM: The Dark Ages, donde el icónico Slayer regresa en una era medieval
-                bañada en sangre y fuego. Con armamento brutal, enemigos demoniacos y una jugabilidad despiadada, este capítulo épico te sumerge
-                en una guerra sin tregua donde tú eres la última esperanza contra el infierno desatado.</p>
-            <p id="gamePrice" class="text-xl font-bold text-stone-9500 mb-4">Precio: $39.99</p>
+            <h2 class="text-xl font-bold text-stone-950 mb-2">Una aventura narrativa ambientada en un mundo de fantasía oscura y ciencia ficción.</h2>
+            <p class="text-stone-950 mb-4">Expedition 33 es un nuevo RPG táctico en tercera persona donde deberás guiar a un grupo de exploradores por un mundo misterioso, derrotar a enemigos colosales y romper un ciclo eterno. De los creadores de Steelrising y GreedFall.</p>
+            <p class="text-xl font-bold text-stone-950 mb-4">Precio: $39.990</p>
             <button id="addToCartBtn" class="bg-teal-950 hover:bg-cyan-900 text-white px-4 py-2 rounded-lg shadow transition mt-4">Agregar al carrito</button>
         </div>
     </div>
@@ -70,37 +60,38 @@
     <div class="mt-8">
         <h2 class="text-2xl font-semibold text-stone-950 mb-4 text-center">Galería de Imágenes</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <img src="img/doom1.jpg" alt="doom1" class="rounded-lg shadow-md" />
-            <img src="img/doom2.jpg" alt="doom2" class="rounded-lg shadow-md" />
-            <img src="img/doom3.jpg" alt="doom3" class="rounded-lg shadow-md" />
+            <img src="img/expedition1.webp" alt="expedition img1" class="h-56 w-full object-cover rounded-lg shadow-md" />
+            <img src="img/expedition2.jpg" alt="expedition img2" class="h-56 w-full object-cover rounded-lg shadow-md" />
+            <img src="img/expedition3.jpg" alt="expedition img3" class="h-56 w-full object-cover rounded-lg shadow-md" />
         </div>
     </div>
 
-    <!-- Comentarios de usuarios -->
+
+
+    <!-- COMENTARIOS -->
     <div class="mt-8">
         <h2 class="text-2xl font-semibold text-stone-950 mb-4 text-center">Comentarios de Usuarios</h2>
         <div class="bg-white rounded-lg shadow-md p-4 mb-4">
-            <p class="font-semibold text-stone-950">Carlos López</p>
-            <p class="text-stone-950">"¡Elden Ring es un juego increíble! La historia, el diseño del mundo y la jugabilidad me mantienen enganchado. Un must para todos los fans de FromSoftware."</p>
+            <p class="font-semibold text-stone-950">Daniela Rivas</p>
+            <p class="text-stone-950">"Una historia envolvente y un combate táctico muy bien diseñado. ¡Gran propuesta indie!"</p>
         </div>
         <div class="bg-white rounded-lg shadow-md p-4 mb-4">
-            <p class="font-semibold text-stone-950">Ana García</p>
-            <p class="text-stone-950">"La jugabilidad es excelente y la dificultad justa. ¡Me encanta explorar el mundo abierto y descubrir todos sus secretos!"</p>
+            <p class="font-semibold text-stone-950">Marco Vidal</p>
+            <p class="text-stone-950">"Visualmente precioso y con una ambientación muy original. Me recordó a Nier y Fire Emblem."</p>
         </div>
         <div class="bg-white rounded-lg shadow-md p-4 mb-4">
-            <p class="font-semibold text-stone-9500">Juan Pérez</p>
-            <p class="text-stone-950">"No soy fanático de los juegos de rol, pero Elden Ring me ha conquistado. Es un juego desafiante pero muy gratificante."</p>
+            <p class="font-semibold text-stone-950">Fernanda Soto</p>
+            <p class="text-stone-950">"Lo espero con ansias desde que lo vi en Summer Game Fest. Tiene muchísimo potencial."</p>
         </div>
     </div>
-
 </div>
 
+<!-- JS Toast -->
 <script>
-    // Cuando se presiona el botón "Agregar al carrito"
     document.getElementById("addToCartBtn").addEventListener("click", function() {
         Toastify({
-            text: "¡Elden Ring ha sido agregado al carrito!",
-            backgroundColor: "#4CAF50", // Color verde
+            text: "¡Expedition 33 ha sido agregado al carrito!",
+            backgroundColor: "#4CAF50",
             duration: 3000
         }).showToast();
     });
@@ -114,13 +105,10 @@
             <p class="text-sm">Tu portal de videojuegos favoritos</p>
         </div>
     </div>
-
     <div class="text-center text-sm bg-stone-950 bg-opactity-80 py-2">
         © 2025 Puerto Games - Todos los derechos reservados.
     </div>
 </footer>
 
-
 </body>
 </html>
-

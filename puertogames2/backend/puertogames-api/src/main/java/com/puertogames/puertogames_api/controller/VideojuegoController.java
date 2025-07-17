@@ -125,7 +125,7 @@ public class VideojuegoController {
 
     @GetMapping("/buscarEnRawg")
     public ResponseEntity<?> buscarJuego(@RequestParam String nombre) {
-        String url = "https://api.rawg.io/api/games?key=" + apiKey + "&search=" + nombre;
+        String url = "https://api.rawg.io/api/games?key=${apiKey}&search=${encodeURIComponent(nombreJuego)}";
 
         RestTemplate restTemplate = new RestTemplate();
         try {

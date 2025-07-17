@@ -1,42 +1,61 @@
-# 🎮 Puerto Games
+# 🎮 PuertoGames - Plataforma Web de Videojuegos
 
-**Puerto Games** es una página web desarrollada para gestionar un completo catálogo de videojuegos, permitiendo a los usuarios consultar, agregar y administrar información de forma ágil y visual.
-
-El proyecto fue creado con el objetivo de modernizar la gestión del inventario y la experiencia de búsqueda de juegos para la empresa Puerto Games.
+¡Bienvenido/a a PuertoGames! Este proyecto consiste en una plataforma web donde los usuarios pueden explorar, filtrar y adquirir videojuegos. Desarrollado con **Spring Boot** y **Tailwind CSS**, el sistema está completamente desplegado y conectado a una base de datos remota.
 
 ---
 
-## 🚀 Funcionalidades Principales
+## 👨‍💻 Integrantes del equipo
 
-✅ **Catálogo Dinámico de Juegos**
-- Visualización de la lista completa de juegos con información detallada.
-- Gráficos y estadísticas sobre los juegos disponibles.
-
-✅ **API de Juegos**
-- Búsqueda de juegos por nombre mediante API RAWG.
-- Integración fácil con otras aplicaciones o sistemas.
-
-✅ **Gestión de Inventario**
-- Formularios para agregar nuevos juegos al catálogo.
-- Actualización de datos en tiempo real.
-
-✅ **Gestión de Usuarios**
-- Formularios para agregar nuevos usuarios a la base de datos.
-- Actualización de datos en tiempo real.
-
-✅ **Interfaz Web Moderna**
-- Diseño responsivo y atractivo utilizando Tailwind CSS.
-- Navegación sencilla e intuitiva.
+| Nombre     | Rol / Responsabilidad principal                                  |
+|------------|------------------------------------------------------------------|
+| Genesis    | Desarrollo backend + Consumo de API externa                      |
+| Natalia    | Desarrollo frontend + Diseño responsivo con Tailwind CSS         |
+| Francisca  | Desarrollo frontend + Gráficos con librerías JS                  |
+| Maicol     | Desarrollo frontend + Conexión a base de datos Supabase          |
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🌐 Enlaces del proyecto
 
-- **Backend**: Java Spring Boot
-- **Base de datos**: MySQL con Laragon
-- **Frontend**: HTML, Tailwind CSS, JavaScript
-- **Control de versiones**: GitHub
-- **Librerias**: Chart.js, Toastify
+- 🚀 **Frontend desplegado**: [https://puertogames.vercel.app/]
+- 🧠 **Backend desplegado (API)**: 
+- 🗄️ **Base de datos Supabase**: [https://supabase.com/dashboard/project/wmvxvbuuxpecjxpwcwsj]
+- 📁 **Repositorio GitHub**: [https://github.com/GMonLep/EV3-PuertoGames.git]
 
 ---
+
+## ⚙️ Tecnologías utilizadas
+
+- 🔙 Backend: **Java + Spring Boot**
+- 🌐 Frontend: **HTML + Tailwind CSS + JavaScript**
+- 🗃️ Base de datos: **Supabase (PostgreSQL)**
+- 📡 API externa: **RAWG Video Games API**
+- 📦 Despliegue:
+  - Backend: **Railway**
+  - Frontend: 
+
+---
+
+## 📌 Funcionalidades principales
+
+- Registro y visualización de videojuegos desde base de datos.
+- Visualización de gráficos con librerías JS.
+- Consumo de datos desde API externa (juegos populares RAWG).
+- Interfaz responsiva y moderna usando Tailwind CSS.
+
+---
+
+## 🔗 Endpoints REST (Spring Boot)
+
+| Método | Ruta                        | Descripción                                |
+|--------|-----------------------------|--------------------------------------------|
+| GET    | `/api/videojuegos`          | Listado de videojuegos                     |
+| POST   | `/api/pedidos`              | Crear nuevo pedido                         |
+| GET    | `/api/usuarios`             | Listar usuarios registrados                |
+| POST   | `/api/usuarios/login`       | Autenticación simple (correo + contraseña) |
+
+
+
+
+
 

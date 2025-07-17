@@ -123,16 +123,19 @@ public class VideojuegoController {
         videojuegoService.eliminarVideojuego(id);
     }
 
-    @GetMapping("/rawg/buscar")
+   @GetMapping("/rawg/buscar")
     @CrossOrigin(origins = "*")
-    public String buscarJuego(@RequestParam String nombre) {
-    String apiKey = "5c9b0cea670f41499bf38f1eaded59cf";
-    String url = "https://api.rawg.io/api/games?key=" + apiKey + "&search=" + URLEncoder.encode(nombre, StandardCharsets.UTF_8);
-    
-    RestTemplate restTemplate = new RestTemplate();
-    return restTemplate.getForObject(url, String.class);
+    public ResponseEntity<?> buscarJuego(@RequestParam String nombre) {
+        try {
+            String apiKey = "5c9b0cea670f41499bf38f1eaded59cf";
+            String url = "https://api.rawg.io/api/games?key=" + apiKey + "&search=" + URLEncoder.encode(nombre, StandardCharsets.UTF_8);
+            RestTemplate restTemplate = new RestTemplate();
+            String result = restTemplate.getForObject(url, String.class);
+            return ResponseEntity.ok(result);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al conectar con RAWG: " + e.getMessage());
     }
-
+}
 
 }
 
